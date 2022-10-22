@@ -1,0 +1,16 @@
+[
+{
+  "modid": "xiaojiaaddons",
+  "name": "XiaojiaAddons",
+  "description": "Cheaters get banned.",
+  "version": "2.4.8.3",
+  "mcversion": "1.8.9",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["PotassiumWings"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
