@@ -3,7 +3,6 @@ package com.xiaojia.xiaojiaaddons.Features.QOL;
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
 import com.xiaojia.xiaojiaaddons.Features.Miscellaneous.Velocity;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.utils.EntityUtils;
 import com.xiaojia.xiaojiaaddons.utils.MathUtils;
 import com.xiaojia.xiaojiaaddons.utils.MinecraftUtils;
@@ -30,7 +29,7 @@ public class EntityQOL {
 
     @SubscribeEvent
     public void onTick(TickEndEvent event) {
-        if (Checker.enabled) {
+        if (true) {
             if (!SkyblockUtils.isInDungeon()) {
                 if (MinecraftUtils.getWorld() != null) {
                     List var2 = EntityUtils.getEntities();

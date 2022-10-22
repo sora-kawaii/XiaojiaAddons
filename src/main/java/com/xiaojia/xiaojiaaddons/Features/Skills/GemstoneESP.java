@@ -3,7 +3,6 @@ package com.xiaojia.xiaojiaaddons.Features.Skills;
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.BlockChangeEvent;
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.utils.GuiUtils;
 import com.xiaojia.xiaojiaaddons.utils.MathUtils;
 import com.xiaojia.xiaojiaaddons.utils.MinecraftUtils;
@@ -35,7 +34,7 @@ public class GemstoneESP {
     private boolean isScanning = false;
 
     private static boolean isEnabled() {
-        return Checker.enabled && MinecraftUtils.getPlayer() != null && MinecraftUtils.getWorld() != null && Configs.GemstoneESP && SkyblockUtils.isInCrystalHollows();
+        return MinecraftUtils.getPlayer() != null && MinecraftUtils.getWorld() != null && Configs.GemstoneESP && SkyblockUtils.isInCrystalHollows();
     }
 
     private static Gemstone getGemstone(IBlockState var0) {

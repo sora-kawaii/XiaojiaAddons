@@ -2,7 +2,6 @@ package com.xiaojia.xiaojiaaddons.Features.QOL;
 
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.ItemDrawnEvent;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.Inventory;
 import com.xiaojia.xiaojiaaddons.utils.ControlUtils;
 import com.xiaojia.xiaojiaaddons.utils.GuiUtils;
@@ -20,7 +19,7 @@ public class AttributeFilter {
     @SubscribeEvent
     public void onItemDrawn(ItemDrawnEvent var1) {
         Inventory var2 = ControlUtils.getOpenedInventory();
-        if (Checker.enabled && var2 != null && Configs.ItemAttributeFilter) {
+        if (var2 != null && Configs.ItemAttributeFilter) {
             ItemStack var3 = var1.itemStack;
             NBTTagCompound var4 = NBTUtils.getCompoundFromExtraAttributes(var3, "attributes");
             if (var4 != null) {

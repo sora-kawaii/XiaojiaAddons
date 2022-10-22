@@ -4,7 +4,6 @@ import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.RenderEntityModelEvent;
 import com.xiaojia.xiaojiaaddons.Features.Dungeons.Map.Dungeon;
 import com.xiaojia.xiaojiaaddons.Features.RenderEntityESP;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.EntityInfo;
 import com.xiaojia.xiaojiaaddons.utils.*;
 import net.minecraft.entity.Entity;
@@ -81,7 +80,7 @@ public class StarredMobESP extends RenderEntityESP {
 
     @SubscribeEvent
     public void onRenderEntityModel(RenderEntityModelEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.StarredMobESP == 1) {
                 if (SkyblockUtils.isInDungeon()) {
                     EntityLivingBase var2 = var1.entity;

@@ -1,7 +1,6 @@
 package com.xiaojia.xiaojiaaddons.Features.Dungeons;
 
 import com.xiaojia.xiaojiaaddons.Config.Configs;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.utils.SkyblockUtils;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityEnderman;
@@ -12,7 +11,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class ShowHiddenMobs {
     @SubscribeEvent
     public void onRender(RenderLivingEvent.Pre var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (SkyblockUtils.isInDungeon()) {
                 EntityLivingBase var2 = var1.entity;
                 String var3 = var2.getCommandSenderEntity().getName();

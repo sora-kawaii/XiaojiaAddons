@@ -9,7 +9,6 @@ import com.xiaojia.xiaojiaaddons.utils.RenderUtils;
 
 import javax.vecmath.Vector2f;
 import java.awt.image.BufferedImage;
-import java.awt.image.ImageObserver;
 
 public class Player {
 

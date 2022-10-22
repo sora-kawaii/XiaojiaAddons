@@ -2,7 +2,6 @@ package com.xiaojia.xiaojiaaddons.Features.Accentry;
 
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.Inventory;
 import com.xiaojia.xiaojiaaddons.utils.ChatLib;
 import com.xiaojia.xiaojiaaddons.utils.ControlUtils;
@@ -88,7 +87,7 @@ public class AutoRongYao {
     }
 
     private boolean should() {
-        if (Checker.enabled && Configs.AutoRongYao) {
+        if (Configs.AutoRongYao) {
             Inventory var1 = ControlUtils.getOpenedInventory();
             if (var1 == null) {
                 return false;

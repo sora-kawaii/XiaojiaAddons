@@ -1,7 +1,6 @@
 package com.xiaojia.xiaojiaaddons.Features.QOL;
 
 import com.xiaojia.xiaojiaaddons.Config.Configs;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.KeyBind;
 import com.xiaojia.xiaojiaaddons.XiaojiaAddons;
 import com.xiaojia.xiaojiaaddons.utils.ControlUtils;
@@ -12,7 +11,6 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class HoldRightClick {
 
@@ -38,7 +36,7 @@ public class HoldRightClick {
     private boolean isRightClicking = false;
 
     public void executeRogue() {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.RogueAutoRightClick) {
                 if (useKeyBind.isKeyDown() && ControlUtils.checkHoldingItem(rogueNames)) {
                     if (!this.isRightClicking) {
@@ -73,7 +71,7 @@ public class HoldRightClick {
     }
 
     public void executeTerminator() {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.TerminatorAutoRightClick) {
                 if (useKeyBind.isKeyDown() && ControlUtils.checkHoldingItem(terminatorNames)) {
                     ControlUtils.rightClick();

@@ -2,7 +2,6 @@ package com.xiaojia.xiaojiaaddons.Features.Skills;
 
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.Inventory;
 import com.xiaojia.xiaojiaaddons.XiaojiaAddons;
 import com.xiaojia.xiaojiaaddons.utils.ControlUtils;
@@ -34,7 +33,7 @@ public class SuperPairs {
     @SubscribeEvent
     public void onGuiRender(GuiScreenEvent.BackgroundDrawnEvent var1) {
         Inventory var2 = ControlUtils.getOpenedInventory();
-        if (Checker.enabled && var2 != null && Configs.SuperpairsSolver) {
+        if (var2 != null && Configs.SuperpairsSolver) {
             String var3 = var2.getName();
             List var4 = var2.getSlots();
             if (var3.contains("Superpairs (")) {
@@ -74,7 +73,7 @@ public class SuperPairs {
 
     @SubscribeEvent
     public void onTick(TickEndEvent event) {
-        if (Checker.enabled) {
+        if (true) {
             Inventory var2 = ControlUtils.getOpenedInventory();
             if (var2 != null && Configs.SuperpairsSolver && XiaojiaAddons.mc.currentScreen instanceof GuiChest) {
                 String var3 = var2.getName();
@@ -107,7 +106,7 @@ public class SuperPairs {
 
     @SubscribeEvent
     public void onTooltip(ItemTooltipEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (var1.toolTip != null) {
                 ItemStack var2 = var1.itemStack;
                 Inventory var3 = ControlUtils.getOpenedInventory();

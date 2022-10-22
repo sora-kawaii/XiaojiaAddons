@@ -5,7 +5,6 @@ import com.xiaojia.xiaojiaaddons.Features.Dungeons.Map.Dungeon;
 import com.xiaojia.xiaojiaaddons.Features.Remote.API.ApiException;
 import com.xiaojia.xiaojiaaddons.Features.Remote.API.HypixelPlayerData;
 import com.xiaojia.xiaojiaaddons.Features.Remote.API.PhraseSecrets;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.utils.ChatLib;
 import com.xiaojia.xiaojiaaddons.utils.CommandsUtils;
 import com.xiaojia.xiaojiaaddons.utils.MinecraftUtils;
@@ -33,7 +32,7 @@ public class SecretChecker {
 
     @SubscribeEvent
     public void onChatMessage(ClientChatReceivedEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.SecretChecker) {
                 if (var1.type == 0) {
                     String var2 = ChatLib.removeFormatting(var1.message.getUnformattedText());

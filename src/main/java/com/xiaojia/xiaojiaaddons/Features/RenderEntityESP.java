@@ -2,7 +2,6 @@ package com.xiaojia.xiaojiaaddons.Features;
 
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.EntityInfo;
 import com.xiaojia.xiaojiaaddons.utils.*;
 import net.minecraft.entity.Entity;
@@ -27,7 +26,7 @@ public abstract class RenderEntityESP {
 
     @SubscribeEvent
     public final void onTick(TickEndEvent event) {
-        if (Checker.enabled && Configs.GeneralESP && MinecraftUtils.getWorld() != null && this.enabled()) {
+        if (Configs.GeneralESP && MinecraftUtils.getWorld() != null && this.enabled()) {
             try {
                 ArrayList var2 = new ArrayList();
                 Iterator var3 = this.getEntities().iterator();
@@ -58,7 +57,7 @@ public abstract class RenderEntityESP {
 
     @SubscribeEvent
     public final void onRenderWorld(RenderWorldLastEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.GeneralESP) {
                 EntityInfo var3;
                 try {

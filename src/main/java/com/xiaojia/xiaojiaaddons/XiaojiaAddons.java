@@ -27,14 +27,12 @@ import com.xiaojia.xiaojiaaddons.Features.Nether.Dojo.Force;
 import com.xiaojia.xiaojiaaddons.Features.Nether.Dojo.Mastery;
 import com.xiaojia.xiaojiaaddons.Features.QOL.*;
 import com.xiaojia.xiaojiaaddons.Features.Remote.API.ApiKey;
-import com.xiaojia.xiaojiaaddons.Features.Remote.ClientSocket;
 import com.xiaojia.xiaojiaaddons.Features.Remote.DungeonLoot;
 import com.xiaojia.xiaojiaaddons.Features.Remote.DupedItems;
 import com.xiaojia.xiaojiaaddons.Features.Remote.LowestBin;
 import com.xiaojia.xiaojiaaddons.Features.Skills.*;
 import com.xiaojia.xiaojiaaddons.Features.Slayers.*;
 import com.xiaojia.xiaojiaaddons.Features.Tests.GuiTest;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.Display.DisplayHandler;
 import com.xiaojia.xiaojiaaddons.Objects.KeyBind;
 import com.xiaojia.xiaojiaaddons.Objects.ScoreBoard;
@@ -65,7 +63,6 @@ public class XiaojiaAddons {
     public static final String VERSION = "2.4.8.3";
     public static final Minecraft mc = Minecraft.getMinecraft();
     public static ArrayList settings = Config.collect(Configs.class);
-    public static CipherUtils cipherUtils;
     public static AutoSneakyCreeper autoSneakyCreeper;
     public static GuiScreen guiToOpen = null;
     private static boolean debug = false;
@@ -90,18 +87,11 @@ public class XiaojiaAddons {
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent var1) {
-        try {
-            cipherUtils = new CipherUtils();
-        } catch (Exception var4) {
-            var4.printStackTrace();
-        }
-
         MinecraftForge.EVENT_BUS.register(new TickEndEvent());
         MinecraftForge.EVENT_BUS.register(new Checker());
         Config.load();
         RoomLoader.load();
         ItemRename.load();
-        ClientSocket.connect();
         DupedItems.load();
         RelicESP.load();
         ClientCommandHandler.instance.registerCommand(new Command());
@@ -110,9 +100,6 @@ public class XiaojiaAddons {
         ClientCommandHandler.instance.registerCommand(new PP());
         ClientCommandHandler.instance.registerCommand(new AutoForagingCommand());
         ClientCommandHandler.instance.registerCommand(new TransferBackCommand());
-        ClientCommandHandler.instance.registerCommand(new XiaojiaChat());
-        ClientCommandHandler.instance.registerCommand(new XiaojiaChatTest());
-        MinecraftForge.EVENT_BUS.register(new com.xiaojia.xiaojiaaddons.Features.Remote.XiaojiaChat());
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(new DisplayHandler());
         MinecraftForge.EVENT_BUS.register(new SoundHandler());

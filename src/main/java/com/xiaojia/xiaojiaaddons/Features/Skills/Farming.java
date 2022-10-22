@@ -2,7 +2,6 @@ package com.xiaojia.xiaojiaaddons.Features.Skills;
 
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.KeyBind;
 import com.xiaojia.xiaojiaaddons.utils.ChatLib;
 import com.xiaojia.xiaojiaaddons.utils.ControlUtils;
@@ -17,7 +16,7 @@ public class Farming {
     private static boolean autoFarmingThreadLock = false;
 
     private static boolean enabled() {
-        return should && Checker.enabled;
+        return should;
     }
 
     private static void moveAccordingToRight(boolean var0) {
@@ -44,63 +43,61 @@ public class Farming {
 
     @SubscribeEvent
     public void onTick(TickEndEvent event) {
-        if (Checker.enabled) {
-            if (keyBind.isPressed()) {
-                should = !should;
-                ChatLib.chat("Auto Farming" + (should ? " &aactivated" : " &cdeactivated"));
-            }
+        if (keyBind.isPressed()) {
+            should = !should;
+            ChatLib.chat("Auto Farming" + (should ? " &aactivated" : " &cdeactivated"));
+        }
 
-            if (Configs.AutoFarm) {
-                if (should) {
-                    if (!autoFarmingThreadLock) {
-                        if (MinecraftUtils.getPlayer() != null) {
-                            autoFarmingThreadLock = true;
-                            (new Thread(() -> {
-                                try {
-                                    boolean var0 = MathUtils.getYaw() < 0.0F;
-                                    ControlUtils.changeDirection(180.0F, 10.0F);
-                                    ControlUtils.stopMoving();
-                                    ControlUtils.holdLeftClick();
-                                    moveAccordingToRight(var0);
+        if (Configs.AutoFarm) {
+            if (should) {
+                if (!autoFarmingThreadLock) {
+                    if (MinecraftUtils.getPlayer() != null) {
+                        autoFarmingThreadLock = true;
+                        (new Thread(() -> {
+                            try {
+                                boolean var0 = MathUtils.getYaw() < 0.0F;
+                                ControlUtils.changeDirection(180.0F, 10.0F);
+                                ControlUtils.stopMoving();
+                                ControlUtils.holdLeftClick();
+                                moveAccordingToRight(var0);
 
-                                    while (enabled()) {
-                                        float var1 = MathUtils.getY(MinecraftUtils.getPlayer());
+                                while (enabled()) {
+                                    float var1 = MathUtils.getY(MinecraftUtils.getPlayer());
 
-                                        while (MathUtils.getY(MinecraftUtils.getPlayer()) >= var1 && enabled()) {
-                                            moveAccordingToRight(var0);
-                                            Thread.sleep(20L);
-                                        }
-
-                                        if (!enabled()) {
-                                            break;
-                                        }
-
-                                        while (MathUtils.getY(MinecraftUtils.getPlayer()) != var1 - 3.0F && MathUtils.getY(MinecraftUtils.getPlayer()) < var1 + 200.0F && enabled()) {
-                                            Thread.sleep(20L);
-                                        }
-
-                                        if (MathUtils.getY(MinecraftUtils.getPlayer()) > var1 + 200.0F) {
-                                            Thread.sleep(1000L);
-                                            var0 = MathUtils.getX(MinecraftUtils.getPlayer()) < 0.0F;
-                                        } else {
-                                            var0 = !var0;
-                                        }
+                                    while (MathUtils.getY(MinecraftUtils.getPlayer()) >= var1 && enabled()) {
+                                        moveAccordingToRight(var0);
+                                        Thread.sleep(20L);
                                     }
 
-                                    ControlUtils.releaseLeft();
-                                    ControlUtils.releaseRight();
-                                    ControlUtils.releaseLeftClick();
-                                    stop();
-                                } catch (Exception var5) {
-                                    var5.printStackTrace();
-                                    stop();
-                                } finally {
-                                    ControlUtils.releaseForward();
-                                    autoFarmingThreadLock = false;
+                                    if (!enabled()) {
+                                        break;
+                                    }
+
+                                    while (MathUtils.getY(MinecraftUtils.getPlayer()) != var1 - 3.0F && MathUtils.getY(MinecraftUtils.getPlayer()) < var1 + 200.0F && enabled()) {
+                                        Thread.sleep(20L);
+                                    }
+
+                                    if (MathUtils.getY(MinecraftUtils.getPlayer()) > var1 + 200.0F) {
+                                        Thread.sleep(1000L);
+                                        var0 = MathUtils.getX(MinecraftUtils.getPlayer()) < 0.0F;
+                                    } else {
+                                        var0 = !var0;
+                                    }
                                 }
 
-                            })).start();
-                        }
+                                ControlUtils.releaseLeft();
+                                ControlUtils.releaseRight();
+                                ControlUtils.releaseLeftClick();
+                                stop();
+                            } catch (Exception var5) {
+                                var5.printStackTrace();
+                                stop();
+                            } finally {
+                                ControlUtils.releaseForward();
+                                autoFarmingThreadLock = false;
+                            }
+
+                        })).start();
                     }
                 }
             }

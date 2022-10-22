@@ -2,7 +2,6 @@ package com.xiaojia.xiaojiaaddons.Features.Dungeons;
 
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.Inventory;
 import com.xiaojia.xiaojiaaddons.utils.ControlUtils;
 import com.xiaojia.xiaojiaaddons.utils.NBTUtils;
@@ -16,7 +15,7 @@ public class AutoSalvage {
 
     @SubscribeEvent
     public void onTick(TickEndEvent event) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.AutoClickSalvage) {
                 Inventory var2 = ControlUtils.getOpenedInventory();
                 if (var2 != null) {

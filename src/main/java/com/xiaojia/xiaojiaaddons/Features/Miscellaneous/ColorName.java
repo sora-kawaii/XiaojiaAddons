@@ -4,7 +4,6 @@ import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.PacketReceivedEvent;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.Pair;
 import com.xiaojia.xiaojiaaddons.XiaojiaAddons;
 import com.xiaojia.xiaojiaaddons.utils.ChatLib;
@@ -235,7 +234,7 @@ public class ColorName {
 
     @SubscribeEvent
     public void onTitlePacketReceived(PacketReceivedEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.ColorNameTitle) {
                 if (var1.packet instanceof S45PacketTitle) {
                     S45PacketTitle var2 = (S45PacketTitle) var1.packet;
@@ -253,7 +252,7 @@ public class ColorName {
             priority = EventPriority.LOW
     )
     public void onMessageReceived(ClientChatReceivedEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (var1.type != 2) {
                 if (Configs.ColorNameChat) {
                     IChatComponent var2 = var1.message.createCopy();
@@ -265,7 +264,7 @@ public class ColorName {
 
     @SubscribeEvent
     public void onScoreBoardPacketReceived(PacketReceivedEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.ColorNameScoreboard) {
                 if (var1.packet instanceof S3EPacketTeams) {
                     S3EPacketTeams var2 = (S3EPacketTeams) var1.packet;
@@ -298,7 +297,7 @@ public class ColorName {
 
     @SubscribeEvent
     public void onTabPacketReceived(PacketReceivedEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.ColorNameTab) {
                 if (var1.packet instanceof S38PacketPlayerListItem) {
                     S38PacketPlayerListItem var2 = (S38PacketPlayerListItem) var1.packet;
@@ -362,7 +361,7 @@ public class ColorName {
 
     @SubscribeEvent
     public void onToolTip(ItemTooltipEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.ColorNameItem) {
                 String var2 = NBTUtils.getUUID(var1.itemStack);
                 if (!var2.equals("")) {
@@ -376,7 +375,7 @@ public class ColorName {
 
     @SubscribeEvent
     public void onPlayerJoin(EntityJoinWorldEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.ColorNameNameTag) {
                 if (var1.entity instanceof EntityPlayer) {
                     EntityPlayer var2 = (EntityPlayer) var1.entity;

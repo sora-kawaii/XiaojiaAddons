@@ -2,7 +2,6 @@ package com.xiaojia.xiaojiaaddons.Mixins;
 
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Features.QOL.GhostQOL;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.utils.SkyblockUtils;
 import net.minecraft.client.renderer.entity.layers.LayerCreeperCharge;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
@@ -24,10 +23,6 @@ public abstract class MixinLayerCreeperCharge implements LayerRenderer {
             )
     )
     private ResourceLocation modifyChargedCreeperLayer(ResourceLocation var1) {
-        if (!Checker.enabled) {
-            return var1;
-        } else {
-            return SkyblockUtils.isInMist() && Configs.VisibleGhost == GhostQOL.FILLED_OUTLINE_BOX ? this.VISIBLE_CREEPER_ARMOR : var1;
-        }
+        return SkyblockUtils.isInMist() && Configs.VisibleGhost == GhostQOL.FILLED_OUTLINE_BOX ? this.VISIBLE_CREEPER_ARMOR : var1;
     }
 }

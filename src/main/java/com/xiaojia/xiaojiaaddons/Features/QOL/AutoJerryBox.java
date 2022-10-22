@@ -1,7 +1,6 @@
 package com.xiaojia.xiaojiaaddons.Features.QOL;
 
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.Inventory;
 import com.xiaojia.xiaojiaaddons.Objects.KeyBind;
 import com.xiaojia.xiaojiaaddons.utils.ChatLib;
@@ -55,7 +54,7 @@ public class AutoJerryBox {
 
     @SubscribeEvent
     public void onTick(TickEndEvent event) {
-        if (Checker.enabled) {
+        if (true) {
             if (this.keyBind.isPressed()) {
                 if (!this.isHoldingJerryBox()) {
                     ChatLib.chat("Hold Jerry Box to continue!");

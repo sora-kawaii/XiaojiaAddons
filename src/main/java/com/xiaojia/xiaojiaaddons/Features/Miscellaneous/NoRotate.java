@@ -3,7 +3,6 @@ package com.xiaojia.xiaojiaaddons.Features.Miscellaneous;
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.PacketReceivedEvent;
 import com.xiaojia.xiaojiaaddons.Features.Dungeons.Map.Dungeon;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.XiaojiaAddons;
 import com.xiaojia.xiaojiaaddons.utils.ChatLib;
 import com.xiaojia.xiaojiaaddons.utils.ControlUtils;
@@ -33,7 +32,7 @@ public class NoRotate {
             priority = EventPriority.LOW
     )
     public void onPosLookPacket(PacketReceivedEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (var1.packet instanceof S08PacketPlayerPosLook) {
                 S08PacketPlayerPosLook var2 = (S08PacketPlayerPosLook) var1.packet;
                 EntityPlayerSP var3 = MinecraftUtils.getPlayer();

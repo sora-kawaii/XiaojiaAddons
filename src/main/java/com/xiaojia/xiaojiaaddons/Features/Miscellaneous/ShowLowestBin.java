@@ -2,7 +2,6 @@ package com.xiaojia.xiaojiaaddons.Features.Miscellaneous;
 
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Features.Remote.LowestBin;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.utils.MathUtils;
 import com.xiaojia.xiaojiaaddons.utils.SkyblockUtils;
 import net.minecraft.item.ItemStack;
@@ -20,7 +19,7 @@ public class ShowLowestBin {
 
     @SubscribeEvent
     public void onItemToolTip(ItemTooltipEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.DisplayLowestBin) {
                 if (SkyblockUtils.isInSkyblock()) {
                     ItemStack var2 = var1.itemStack;

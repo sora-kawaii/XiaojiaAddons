@@ -3,7 +3,6 @@ package com.xiaojia.xiaojiaaddons.Features.Bestiary;
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
 import com.xiaojia.xiaojiaaddons.Features.RenderEntityESP;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.EntityInfo;
 import com.xiaojia.xiaojiaaddons.utils.*;
 import net.minecraft.entity.Entity;
@@ -103,7 +102,7 @@ public class Spider extends RenderEntityESP {
     }
 
     public boolean shouldDrawString(EntityInfo var1) {
-        if (Checker.enabled && SkyblockUtils.isInSpiderDen()) {
+        if (SkyblockUtils.isInSpiderDen()) {
             String var2 = var1.getKind();
             return Configs.ArachneKeeperDisplayName && var2.contains("Arachne's Keeper") || Configs.BroodMotherDisplayName && var2.contains("Brood Mother");
         } else {
@@ -113,7 +112,7 @@ public class Spider extends RenderEntityESP {
 
     @SubscribeEvent
     public void onTickShadowFury(TickEndEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (SkyblockUtils.isInSpiderDen() && Configs.SpiderDenShadowfuryPoint) {
                 ArrayList var2 = new ArrayList();
                 List var3 = EntityUtils.getEntities();
@@ -192,7 +191,7 @@ public class Spider extends RenderEntityESP {
     }
 
     public boolean shouldRenderESP(EntityInfo var1) {
-        if (Checker.enabled && SkyblockUtils.isInSpiderDen()) {
+        if (SkyblockUtils.isInSpiderDen()) {
             String var2 = var1.getKind();
             return Configs.ArachneKeeperDisplayBox && var2.contains("Arachne's Keeper") || Configs.BroodMotherDisplayBox && var2.contains("Brood Mother");
         } else {
@@ -202,7 +201,7 @@ public class Spider extends RenderEntityESP {
 
     @SubscribeEvent
     public void onWorldLoad(WorldEvent.Load var1) {
-        if (Checker.enabled) {
+        if (true) {
             this.shadowFuryWarnedInThisLobby = false;
         }
     }

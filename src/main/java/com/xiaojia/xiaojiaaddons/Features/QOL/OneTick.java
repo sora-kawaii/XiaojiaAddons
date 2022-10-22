@@ -2,7 +2,6 @@ package com.xiaojia.xiaojiaaddons.Features.QOL;
 
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.LeftClickEvent;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.KeyBind;
 import com.xiaojia.xiaojiaaddons.utils.ChatLib;
 import com.xiaojia.xiaojiaaddons.utils.ControlUtils;
@@ -43,7 +42,7 @@ public class OneTick {
 
     @SubscribeEvent
     public void onTick(TickEvent.ClientTickEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (this.keyBind.isPressed()) {
                 this.should = !this.should;
                 ChatLib.chat(this.should ? "Left Click One Tick &aactivated" : "Left Click One Tick &cdeactivated");
@@ -58,7 +57,7 @@ public class OneTick {
 
     @SubscribeEvent
     public void onLeftClick(LeftClickEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (this.should) {
                 if (!ControlUtils.checkHoldingItem("Gloomlock Grimoire")) {
                     if (!ControlUtils.checkHoldingItem("Gyrokinetic Wand")) {

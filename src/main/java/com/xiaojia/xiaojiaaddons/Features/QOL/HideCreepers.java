@@ -2,7 +2,6 @@ package com.xiaojia.xiaojiaaddons.Features.QOL;
 
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.utils.EntityUtils;
 import com.xiaojia.xiaojiaaddons.utils.MinecraftUtils;
 import com.xiaojia.xiaojiaaddons.utils.SkyblockUtils;
@@ -15,7 +14,7 @@ import java.util.Iterator;
 public class HideCreepers {
     @SubscribeEvent
     public void onTick(TickEndEvent event) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.HideCreepers) {
                 if (MinecraftUtils.getWorld() != null) {
                     if (!SkyblockUtils.isInDungeon()) {

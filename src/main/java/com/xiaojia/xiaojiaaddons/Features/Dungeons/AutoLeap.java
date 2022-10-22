@@ -4,7 +4,6 @@ import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.GuiContainerEvent;
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
 import com.xiaojia.xiaojiaaddons.Features.Dungeons.Map.Dungeon;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.Inventory;
 import com.xiaojia.xiaojiaaddons.utils.*;
 import net.minecraft.inventory.Slot;
@@ -24,7 +23,7 @@ public class AutoLeap {
 
     @SubscribeEvent
     public void onTick(TickEndEvent event) {
-        if (Checker.enabled) {
+        if (true) {
             if (SkyblockUtils.isInDungeon()) {
                 Inventory var2 = ControlUtils.getOpenedInventory();
                 if (var2 != null && var2.getName().contains("Spirit Leap")) {
@@ -69,7 +68,7 @@ public class AutoLeap {
     @SubscribeEvent
     public void onGuiRender(GuiScreenEvent.BackgroundDrawnEvent var1) {
         Inventory var2 = ControlUtils.getOpenedInventory();
-        if (Checker.enabled && SkyblockUtils.isInDungeon() && var2 != null && Configs.SpiritLeapName) {
+        if (SkyblockUtils.isInDungeon() && var2 != null && Configs.SpiritLeapName) {
             String var3 = var2.getName();
             if (var3.contains("Spirit Leap")) {
                 List var4 = var2.getSlots();
@@ -89,7 +88,7 @@ public class AutoLeap {
     @SubscribeEvent
     public void onSlotDraw(GuiContainerEvent.DrawSlotEvent.Pre var1) {
         Inventory var2 = ControlUtils.getOpenedInventory();
-        if (Checker.enabled && SkyblockUtils.isInDungeon() && var2 != null && Configs.SpiritLeapName) {
+        if (SkyblockUtils.isInDungeon() && var2 != null && Configs.SpiritLeapName) {
             String var3 = var2.getName();
             if (var3.contains("Spirit Leap")) {
                 try {

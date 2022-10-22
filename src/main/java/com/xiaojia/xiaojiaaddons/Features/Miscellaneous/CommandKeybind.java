@@ -2,7 +2,6 @@ package com.xiaojia.xiaojiaaddons.Features.Miscellaneous;
 
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.XiaojiaAddons;
 import com.xiaojia.xiaojiaaddons.utils.ChatLib;
 import net.minecraft.client.settings.KeyBinding;
@@ -23,7 +22,6 @@ import java.io.File;
 import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.nio.file.OpenOption;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
@@ -141,7 +139,7 @@ public class CommandKeybind {
 
     @SubscribeEvent
     public void onKey(InputEvent.KeyInputEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             Iterator var2 = XiaojiaKeyBind.keyBinds.values().iterator();
 
             while (true) {

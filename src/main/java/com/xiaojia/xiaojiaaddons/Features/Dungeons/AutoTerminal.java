@@ -2,7 +2,6 @@ package com.xiaojia.xiaojiaaddons.Features.Dungeons;
 
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.Inventory;
 import com.xiaojia.xiaojiaaddons.XiaojiaAddons;
 import com.xiaojia.xiaojiaaddons.utils.*;
@@ -228,7 +227,7 @@ public class AutoTerminal {
 
     @SubscribeEvent
     public void onGuiRender(GuiScreenEvent.BackgroundDrawnEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (SkyblockUtils.isInDungeon()) {
                 Inventory var2 = ControlUtils.getOpenedInventory();
                 if (var2 == null) {

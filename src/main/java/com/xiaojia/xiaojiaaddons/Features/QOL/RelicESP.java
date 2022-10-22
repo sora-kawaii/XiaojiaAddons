@@ -3,7 +3,6 @@ package com.xiaojia.xiaojiaaddons.Features.QOL;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 import com.xiaojia.xiaojiaaddons.Config.Configs;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.utils.GuiUtils;
 import com.xiaojia.xiaojiaaddons.utils.SkyblockUtils;
 import net.minecraft.util.BlockPos;
@@ -18,7 +17,6 @@ import java.io.File;
 import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.nio.file.OpenOption;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -60,7 +58,7 @@ public class RelicESP {
 
     @SubscribeEvent
     public void onRelic(PlayerInteractEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.RelicESP) {
                 if (SkyblockUtils.isInSpiderDen()) {
                     if (var1.action == Action.RIGHT_CLICK_BLOCK) {
@@ -77,7 +75,7 @@ public class RelicESP {
 
     @SubscribeEvent
     public void onRender(RenderWorldLastEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.RelicESP) {
                 if (SkyblockUtils.isInSpiderDen()) {
                     for (int var2 = 0; var2 < locations.size(); ++var2) {

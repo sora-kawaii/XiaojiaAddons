@@ -1,7 +1,6 @@
 package com.xiaojia.xiaojiaaddons.Features.QOL;
 
 import com.xiaojia.xiaojiaaddons.Config.Configs;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.utils.BlockUtils;
 import com.xiaojia.xiaojiaaddons.utils.GuiUtils;
 import com.xiaojia.xiaojiaaddons.utils.SkyblockUtils;
@@ -21,7 +20,7 @@ public class MonolithESP {
 
     @SubscribeEvent
     public void onRenderTick(RenderWorldLastEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.MonolithESP) {
                 if (SkyblockUtils.isInDwarven()) {
                     BlockPos var2 = null;

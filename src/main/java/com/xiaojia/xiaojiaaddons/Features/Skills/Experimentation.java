@@ -2,7 +2,6 @@ package com.xiaojia.xiaojiaaddons.Features.Skills;
 
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.Inventory;
 import com.xiaojia.xiaojiaaddons.utils.ChatLib;
 import com.xiaojia.xiaojiaaddons.utils.ControlUtils;
@@ -39,73 +38,71 @@ public class Experimentation {
 
     @SubscribeEvent
     public void onGuiRender(GuiScreenEvent.BackgroundDrawnEvent var1) {
-        if (Checker.enabled) {
-            if (Configs.AutoChronomatron || Configs.AutoUltrasequencer) {
-                Inventory var2 = ControlUtils.getOpenedInventory();
-                if (var2 != null) {
-                    try {
-                        String var3 = var2.getName();
-                        ItemStack var4;
-                        if (var3.startsWith("Chronomatron")) {
-                            if (!Configs.AutoChronomatron) {
-                                return;
+        if (Configs.AutoChronomatron || Configs.AutoUltrasequencer) {
+            Inventory var2 = ControlUtils.getOpenedInventory();
+            if (var2 != null) {
+                try {
+                    String var3 = var2.getName();
+                    ItemStack var4;
+                    if (var3.startsWith("Chronomatron")) {
+                        if (!Configs.AutoChronomatron) {
+                            return;
+                        }
+
+                        var4 = ControlUtils.getItemStackInSlot(4, false);
+                        ItemStack var10 = ControlUtils.getItemStackInSlot(49, false);
+                        if (var4 == null || var10 == null) {
+                            return;
+                        }
+
+                        int var6 = var4.stackSize;
+                        int var7 = var10.stackSize;
+                        String var8 = var10.getDisplayName();
+                        if (var8.contains("Timer:")) {
+                            if (var6 != this.chronomatronLastRound && var7 == this.chronomatronLastRound + 3) {
+                                this.chronomatronLastRound = var6;
+                                this.addChronomatron();
                             }
 
-                            var4 = ControlUtils.getItemStackInSlot(4, false);
-                            ItemStack var10 = ControlUtils.getItemStackInSlot(49, false);
-                            if (var4 == null || var10 == null) {
-                                return;
+                            if (this.chronomatronCnt < chronomatronPatterns.size() && TimeUtils.curTime() - this.lastExperimentationTime > (long) Configs.ExperimentClickCoolDown) {
+                                this.lastExperimentationTime = TimeUtils.curTime();
+                                this.clickChronomatron();
+                            }
+                        } else if (var8.contains("Remember the pattern")) {
+                            this.chronomatronCnt = 0;
+                        }
+                    } else if (var3.startsWith("Ultrasequencer")) {
+                        if (!Configs.AutoUltrasequencer) {
+                            return;
+                        }
+
+                        var4 = ControlUtils.getItemStackInSlot(49, false);
+                        if (var4 == null) {
+                            return;
+                        }
+
+                        String var5 = var4.getDisplayName();
+                        if (var5.contains("Remember the pattern!")) {
+                            this.getUltraSequence();
+                            this.ultrasequenceCnt = 0;
+                            this.ultrasequenceLastRender = true;
+                        } else if (var5.contains("Timer:")) {
+                            if (this.ultrasequenceLastRender) {
+                                ++this.ultrasequenceTot;
                             }
 
-                            int var6 = var4.stackSize;
-                            int var7 = var10.stackSize;
-                            String var8 = var10.getDisplayName();
-                            if (var8.contains("Timer:")) {
-                                if (var6 != this.chronomatronLastRound && var7 == this.chronomatronLastRound + 3) {
-                                    this.chronomatronLastRound = var6;
-                                    this.addChronomatron();
-                                }
-
-                                if (this.chronomatronCnt < chronomatronPatterns.size() && TimeUtils.curTime() - this.lastExperimentationTime > (long) Configs.ExperimentClickCoolDown) {
-                                    this.lastExperimentationTime = TimeUtils.curTime();
-                                    this.clickChronomatron();
-                                }
-                            } else if (var8.contains("Remember the pattern")) {
-                                this.chronomatronCnt = 0;
-                            }
-                        } else if (var3.startsWith("Ultrasequencer")) {
-                            if (!Configs.AutoUltrasequencer) {
-                                return;
-                            }
-
-                            var4 = ControlUtils.getItemStackInSlot(49, false);
-                            if (var4 == null) {
-                                return;
-                            }
-
-                            String var5 = var4.getDisplayName();
-                            if (var5.contains("Remember the pattern!")) {
-                                this.getUltraSequence();
-                                this.ultrasequenceCnt = 0;
-                                this.ultrasequenceLastRender = true;
-                            } else if (var5.contains("Timer:")) {
-                                if (this.ultrasequenceLastRender) {
-                                    ++this.ultrasequenceTot;
-                                }
-
-                                this.ultrasequenceLastRender = false;
-                                if (this.chronomatronCnt < this.ultrasequenceTot && TimeUtils.curTime() - this.lastExperimentationTime > (long) Configs.ExperimentClickCoolDown) {
-                                    this.lastExperimentationTime = TimeUtils.curTime();
-                                    ++this.ultrasequenceCnt;
-                                    ControlUtils.getOpenedInventory().click((Integer) ultrasequenceList.get(this.ultrasequenceCnt));
-                                }
+                            this.ultrasequenceLastRender = false;
+                            if (this.chronomatronCnt < this.ultrasequenceTot && TimeUtils.curTime() - this.lastExperimentationTime > (long) Configs.ExperimentClickCoolDown) {
+                                this.lastExperimentationTime = TimeUtils.curTime();
+                                ++this.ultrasequenceCnt;
+                                ControlUtils.getOpenedInventory().click((Integer) ultrasequenceList.get(this.ultrasequenceCnt));
                             }
                         }
-                    } catch (Exception var9) {
-                        var9.printStackTrace();
                     }
-
+                } catch (Exception var9) {
+                    var9.printStackTrace();
                 }
+
             }
         }
     }

@@ -7,7 +7,6 @@ import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
 import com.xiaojia.xiaojiaaddons.Features.Dungeons.Map.Dungeon;
 import com.xiaojia.xiaojiaaddons.Features.Remote.RemoteUtils;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.XiaojiaAddons;
 import com.xiaojia.xiaojiaaddons.utils.*;
 import net.minecraft.entity.Entity;
@@ -54,7 +53,7 @@ public class ThreeWeirdos {
 
     @SubscribeEvent
     public void onTick(TickEndEvent event) {
-        if (Checker.enabled) {
+        if (true) {
             if (TimeUtils.curTime() - lastFetch > 1200000L) {
                 lastFetch = TimeUtils.curTime();
                 fetch();
@@ -93,7 +92,7 @@ public class ThreeWeirdos {
 
     @SubscribeEvent
     public void onReceive(ClientChatReceivedEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (var1.type == 0) {
                 if (Configs.ThreeWeirdosSolver) {
                     if (SkyblockUtils.isInDungeon()) {

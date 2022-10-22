@@ -3,7 +3,6 @@ package com.xiaojia.xiaojiaaddons.Features.Bestiary;
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
 import com.xiaojia.xiaojiaaddons.Features.Miscellaneous.PacketRelated;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.Image;
 import com.xiaojia.xiaojiaaddons.Objects.KeyBind;
 import com.xiaojia.xiaojiaaddons.Objects.Pair;
@@ -41,7 +40,7 @@ public abstract class AutoWalk {
 
     @SubscribeEvent
     public void onTick(TickEndEvent event) {
-        if (Checker.enabled) {
+        if (true) {
             if (!this.enabled() && this.should) {
                 this.stop();
             }

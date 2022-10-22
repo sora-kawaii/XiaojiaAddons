@@ -1,7 +1,6 @@
 package com.xiaojia.xiaojiaaddons.Features.Accentry;
 
 import com.xiaojia.xiaojiaaddons.Config.Configs;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import net.minecraft.event.ClickEvent.Action;
 import net.minecraft.event.HoverEvent;
 import net.minecraft.util.ChatComponentText;
@@ -23,12 +22,10 @@ public class HoverCommand {
 
     @SubscribeEvent
     public void onMessageReceived(ClientChatReceivedEvent var1) {
-        if (Checker.enabled) {
-            if (Configs.ChatHoverCommand) {
-                if (var1.type != 2) {
-                    IChatComponent var2 = var1.message;
-                    this.convert(var2);
-                }
+        if (Configs.ChatHoverCommand) {
+            if (var1.type != 2) {
+                IChatComponent var2 = var1.message;
+                this.convert(var2);
             }
         }
     }

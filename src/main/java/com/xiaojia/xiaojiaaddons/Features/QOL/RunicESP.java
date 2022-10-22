@@ -2,7 +2,6 @@ package com.xiaojia.xiaojiaaddons.Features.QOL;
 
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Features.RenderEntityESP;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.EntityInfo;
 import net.minecraft.entity.Entity;
 
@@ -14,7 +13,7 @@ public class RunicESP extends RenderEntityESP {
     }
 
     public EntityInfo getEntityInfo(Entity var1) {
-        if (!Checker.enabled) {
+        if (false) {
             return null;
         } else if (!Configs.RunicESP) {
             return null;

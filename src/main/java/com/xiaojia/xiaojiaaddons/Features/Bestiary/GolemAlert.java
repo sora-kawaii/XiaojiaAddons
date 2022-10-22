@@ -2,7 +2,6 @@ package com.xiaojia.xiaojiaaddons.Features.Bestiary;
 
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.Display.Display;
 import com.xiaojia.xiaojiaaddons.Objects.Display.DisplayLine;
 import com.xiaojia.xiaojiaaddons.utils.MinecraftUtils;
@@ -50,7 +49,7 @@ public class GolemAlert {
 
     @SubscribeEvent
     public void onTick(TickEndEvent event) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.GolemAlert) {
                 this.display.clearLines();
                 this.display.setShouldRender(false);

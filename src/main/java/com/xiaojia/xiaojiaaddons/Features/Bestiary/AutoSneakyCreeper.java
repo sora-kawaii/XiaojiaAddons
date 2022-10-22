@@ -1,7 +1,6 @@
 package com.xiaojia.xiaojiaaddons.Features.Bestiary;
 
 import com.xiaojia.xiaojiaaddons.Config.Configs;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.KeyBind;
 import com.xiaojia.xiaojiaaddons.Objects.Pair;
 import com.xiaojia.xiaojiaaddons.utils.*;
@@ -34,7 +33,7 @@ public class AutoSneakyCreeper extends AutoWalk {
 
     @SubscribeEvent
     public void onRender(RenderWorldLastEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.AutoSneakyCreeper && SkyblockUtils.isInGunpowderMines()) {
                 if (this.goingTo != null) {
                     if (!this.shouldShow && !Configs.DevTracing) {
@@ -96,7 +95,7 @@ public class AutoSneakyCreeper extends AutoWalk {
 
     @SubscribeEvent
     public void onRenderOverlay(RenderGameOverlayEvent.Pre var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (this.enabled()) {
                 if (Configs.SneakyCreeperMap) {
                     if (var1.type == ElementType.TEXT) {

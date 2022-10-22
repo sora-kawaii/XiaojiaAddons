@@ -2,7 +2,6 @@ package com.xiaojia.xiaojiaaddons.Features.Dungeons.Puzzles.Water;
 
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.Image;
 import com.xiaojia.xiaojiaaddons.Objects.KeyBind;
 import com.xiaojia.xiaojiaaddons.utils.ChatLib;
@@ -53,7 +52,7 @@ public class DevWater {
 
     @SubscribeEvent
     public void onTick(TickEndEvent event) {
-        if (Checker.enabled) {
+        if (true) {
             if (SessionUtils.isDev()) {
                 if (this.devKeyBind.isKeyDown()) {
                     if (TimeUtils.curTime() - lastKey < 250L) {
@@ -108,7 +107,7 @@ public class DevWater {
 
     @SubscribeEvent
     public void onRenderOverlay(RenderGameOverlayEvent.Pre var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (SessionUtils.isDev()) {
                 if (Configs.DevWater) {
                     if (var1.type == ElementType.TEXT) {

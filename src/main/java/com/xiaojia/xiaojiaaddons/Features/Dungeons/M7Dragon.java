@@ -3,7 +3,6 @@ package com.xiaojia.xiaojiaaddons.Features.Dungeons;
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.PacketReceivedEvent;
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.Display.Display;
 import com.xiaojia.xiaojiaaddons.Objects.Display.DisplayLine;
 import com.xiaojia.xiaojiaaddons.utils.*;
@@ -88,7 +87,7 @@ public class M7Dragon {
     }
 
     public static void getEntityTexture(EntityDragon var0, CallbackInfoReturnable var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.ReplaceDragonTexture != 0) {
                 String var3;
                 if (Configs.ReplaceDragonTexture == 1) {
@@ -132,7 +131,7 @@ public class M7Dragon {
 
     @SubscribeEvent
     public void onReceive(PacketReceivedEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (SkyblockUtils.isInDungeon()) {
                 if (SkyblockUtils.getDungeon().contains("7")) {
                     if (var1.packet instanceof S2APacketParticles) {
@@ -180,7 +179,7 @@ public class M7Dragon {
 
     @SubscribeEvent
     public void onRenderWorld(RenderWorldLastEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.ShowStatueBox) {
                 if (SkyblockUtils.isInDungeon() && SkyblockUtils.getDungeon().equals("M7")) {
                     Iterator var2 = dragonInfos.iterator();
@@ -201,7 +200,7 @@ public class M7Dragon {
     public void renderLivingPost(TickEndEvent var1) {
         this.display.clearLines();
         this.display.setRenderLoc(Configs.dragonInfoX, Configs.dragonInfoY);
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.dragonInfoDisplay) {
                 if (MinecraftUtils.getWorld() != null) {
                     if (Configs.dragonInfoTest) {
@@ -288,7 +287,7 @@ public class M7Dragon {
 
     @SubscribeEvent
     public void onTick(TickEndEvent event) {
-        if (Checker.enabled) {
+        if (true) {
             if (SkyblockUtils.isInDungeon()) {
                 if (MinecraftUtils.getWorld() != null) {
                     if (TimeUtils.curTime() - lastCheck > (long) Configs.DragonCheckCD) {

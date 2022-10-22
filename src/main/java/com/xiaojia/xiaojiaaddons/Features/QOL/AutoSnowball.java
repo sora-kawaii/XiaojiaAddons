@@ -1,7 +1,6 @@
 package com.xiaojia.xiaojiaaddons.Features.QOL;
 
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.Inventory;
 import com.xiaojia.xiaojiaaddons.Objects.KeyBind;
 import com.xiaojia.xiaojiaaddons.utils.CommandsUtils;
@@ -20,7 +19,7 @@ public class AutoSnowball {
 
     @SubscribeEvent
     public void onTick(TickEndEvent event) {
-        if (Checker.enabled) {
+        if (true) {
             Inventory var2 = ControlUtils.getOpenedInventory();
             if (var2 != null && var2.getSize() == 45) {
                 if (this.keyBind.isKeyDown() && (this.snowballThread == null || !this.snowballThread.isAlive())) {

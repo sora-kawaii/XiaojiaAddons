@@ -3,7 +3,6 @@ package com.xiaojia.xiaojiaaddons.Mixins;
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Features.Dungeons.M7Dragon;
 import com.xiaojia.xiaojiaaddons.Features.Miscellaneous.Velocity;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.utils.MinecraftUtils;
 import com.xiaojia.xiaojiaaddons.utils.SkyblockUtils;
 import net.minecraft.client.entity.EntityPlayerSP;
@@ -89,6 +88,6 @@ public abstract class MixinNetHandlerPlayClient {
     }
 
     private boolean enabled() {
-        return Checker.enabled && Velocity.canDisableKnockBack() && (SkyblockUtils.isInSkyblock() || !Configs.DisableOutofSkyBlock);
+        return Velocity.canDisableKnockBack() && (SkyblockUtils.isInSkyblock() || !Configs.DisableOutofSkyBlock);
     }
 }

@@ -4,7 +4,6 @@ import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
 import com.xiaojia.xiaojiaaddons.Features.Dungeons.Map.Dungeon;
 import com.xiaojia.xiaojiaaddons.Features.RenderEntityESP;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.EntityInfo;
 import com.xiaojia.xiaojiaaddons.utils.BlockUtils;
 import net.minecraft.block.BlockStainedGlass;
@@ -32,7 +31,7 @@ public class LividESP extends RenderEntityESP {
     @SubscribeEvent
     public void onTickCheck(TickEndEvent var1) {
         this.colorChat = null;
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.ShowCorrectLivid) {
                 if (Dungeon.bossEntry > Dungeon.runStarted) {
                     if (Dungeon.floorInt == 5) {

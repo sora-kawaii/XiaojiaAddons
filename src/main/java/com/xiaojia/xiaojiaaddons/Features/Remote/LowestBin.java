@@ -5,7 +5,6 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.Pair;
 import com.xiaojia.xiaojiaaddons.utils.NBTUtils;
 import com.xiaojia.xiaojiaaddons.utils.TimeUtils;
@@ -85,7 +84,7 @@ public class LowestBin {
 
     @SubscribeEvent
     public void onTick(TickEndEvent event) {
-        if (Checker.enabled) {
+        if (true) {
             long var2 = TimeUtils.curTime();
             if (var2 - lastCheckedTime >= 60000L) {
                 lastCheckedTime = var2;

@@ -3,7 +3,6 @@ package com.xiaojia.xiaojiaaddons.Features.QOL;
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.BlockChangeEvent;
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.utils.GuiUtils;
 import com.xiaojia.xiaojiaaddons.utils.MathUtils;
 import com.xiaojia.xiaojiaaddons.utils.MinecraftUtils;
@@ -32,7 +31,7 @@ public class NearbyChestESP {
 
     @SubscribeEvent
     public void onTick(TickEndEvent event) {
-        if (Checker.enabled) {
+        if (true) {
             if (this.isEnabled()) {
                 EntityPlayerSP var2 = MinecraftUtils.getPlayer();
                 if (var2 != null) {
@@ -58,7 +57,7 @@ public class NearbyChestESP {
 
     @SubscribeEvent
     public void onRenderWorld(RenderWorldLastEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (this.isEnabled()) {
                 this.chests.removeIf((var0) -> {
                     return MinecraftUtils.getWorld().getBlockState((BlockPos) var0).getBlock() != Blocks.chest;
@@ -84,7 +83,7 @@ public class NearbyChestESP {
 
     @SubscribeEvent
     public void onBlockChange(BlockChangeEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (this.isEnabled()) {
                 if (var1.oldBlock.getBlock() == Blocks.chest && var1.newBlock.getBlock() == Blocks.air) {
                     this.chests.remove(var1.position);

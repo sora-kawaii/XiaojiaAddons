@@ -3,7 +3,6 @@ package com.xiaojia.xiaojiaaddons.Features.Slayers;
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.LeftClickEvent;
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.Display.Display;
 import com.xiaojia.xiaojiaaddons.Objects.Display.DisplayLine;
 import com.xiaojia.xiaojiaaddons.XiaojiaAddons;
@@ -109,40 +108,38 @@ public class Blaze {
 
     @SubscribeEvent
     public void onTick(TickEndEvent event) {
-        if (Checker.enabled) {
-            if (Configs.PillarDisplay) {
-                if (MinecraftUtils.getWorld() != null) {
-                    display.clearLines();
-                    display.setRenderLoc(Configs.PillarX, Configs.PillarY);
-                    display.setShouldRender(true);
-                    if (Configs.PillarTest) {
-                        DisplayLine var2 = new DisplayLine("&fPillar: &6&l6s &c&l8 hits");
-                        var2.setScale(1.51F * (float) Configs.PillarScale / 20.0F);
-                        display.addLine(var2);
-                    }
-
-                    Iterator var8 = EntityUtils.getEntities().iterator();
-
-                    while (var8.hasNext()) {
-                        Entity var3 = (Entity) var8.next();
-                        String var4 = ChatLib.removeFormatting(var3.getName());
-                        Pattern var5 = Pattern.compile("(\\d)s (\\d) hits");
-                        Matcher var6 = var5.matcher(var4);
-                        if (var6.find()) {
-                            DisplayLine var7 = new DisplayLine("&fPillar: " + var3.getName());
-                            var7.setScale(1.51F * (float) Configs.PillarScale / 20.0F);
-                            display.addLine(var7);
-                        }
-                    }
-
+        if (Configs.PillarDisplay) {
+            if (MinecraftUtils.getWorld() != null) {
+                display.clearLines();
+                display.setRenderLoc(Configs.PillarX, Configs.PillarY);
+                display.setShouldRender(true);
+                if (Configs.PillarTest) {
+                    DisplayLine var2 = new DisplayLine("&fPillar: &6&l6s &c&l8 hits");
+                    var2.setScale(1.51F * (float) Configs.PillarScale / 20.0F);
+                    display.addLine(var2);
                 }
+
+                Iterator var8 = EntityUtils.getEntities().iterator();
+
+                while (var8.hasNext()) {
+                    Entity var3 = (Entity) var8.next();
+                    String var4 = ChatLib.removeFormatting(var3.getName());
+                    Pattern var5 = Pattern.compile("(\\d)s (\\d) hits");
+                    Matcher var6 = var5.matcher(var4);
+                    if (var6.find()) {
+                        DisplayLine var7 = new DisplayLine("&fPillar: " + var3.getName());
+                        var7.setScale(1.51F * (float) Configs.PillarScale / 20.0F);
+                        display.addLine(var7);
+                    }
+                }
+
             }
         }
     }
 
     @SubscribeEvent
     public void onLeftClick(LeftClickEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.BlazeSlayerHelper) {
                 MovingObjectPosition var2 = XiaojiaAddons.mc.objectMouseOver;
                 if (var2 != null) {

@@ -1,7 +1,6 @@
 package com.xiaojia.xiaojiaaddons.Features.QOL;
 
 import com.xiaojia.xiaojiaaddons.Config.Configs;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.KeyBind;
 import com.xiaojia.xiaojiaaddons.XiaojiaAddons;
 import com.xiaojia.xiaojiaaddons.utils.BlockUtils;
@@ -45,7 +44,7 @@ public class GhostBlock {
             priority = EventPriority.LOW
     )
     public void onPlayerInteract(PlayerInteractEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.GhostBlockWithPickaxe) {
                 try {
                     if (var1.action == Action.RIGHT_CLICK_BLOCK) {

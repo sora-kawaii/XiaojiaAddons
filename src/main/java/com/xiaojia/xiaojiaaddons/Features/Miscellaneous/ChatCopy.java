@@ -1,7 +1,6 @@
 package com.xiaojia.xiaojiaaddons.Features.Miscellaneous;
 
 import com.xiaojia.xiaojiaaddons.Config.Configs;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.utils.ChatLib;
 import net.minecraft.event.ClickEvent;
 import net.minecraft.event.ClickEvent.Action;
@@ -17,7 +16,7 @@ public class ChatCopy {
             priority = EventPriority.LOW
     )
     public void onMessageReceived(ClientChatReceivedEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.ChatCopy) {
                 if (var1.type != 2) {
                     String var2 = var1.message.getFormattedText();

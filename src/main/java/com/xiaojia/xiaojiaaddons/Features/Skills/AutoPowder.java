@@ -3,7 +3,6 @@ package com.xiaojia.xiaojiaaddons.Features.Skills;
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.PacketReceivedEvent;
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.KeyBind;
 import com.xiaojia.xiaojiaaddons.XiaojiaAddons;
 import com.xiaojia.xiaojiaaddons.utils.*;
@@ -57,7 +56,7 @@ public class AutoPowder {
 
     @SubscribeEvent
     public void onTick(TickEndEvent event) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.AutoPowder) {
                 if (SkyblockUtils.isInCrystalHollows()) {
                     if (keyBind.isPressed()) {

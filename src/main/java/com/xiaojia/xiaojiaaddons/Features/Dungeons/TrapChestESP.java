@@ -3,7 +3,6 @@ package com.xiaojia.xiaojiaaddons.Features.Dungeons;
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.BlockChangeEvent;
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.utils.BlockUtils;
 import com.xiaojia.xiaojiaaddons.utils.GuiUtils;
 import com.xiaojia.xiaojiaaddons.utils.MinecraftUtils;
@@ -26,7 +25,7 @@ public class TrapChestESP {
     private BlockPos lastChecked = null;
 
     private static boolean isEnabled() {
-        return Checker.enabled && MinecraftUtils.getPlayer() != null && MinecraftUtils.getWorld() != null && Configs.TrapChestESP && SkyblockUtils.isInDungeon();
+        return MinecraftUtils.getPlayer() != null && MinecraftUtils.getWorld() != null && Configs.TrapChestESP && SkyblockUtils.isInDungeon();
     }
 
     @SubscribeEvent

@@ -1,7 +1,6 @@
 package com.xiaojia.xiaojiaaddons.Features.QOL;
 
 import com.xiaojia.xiaojiaaddons.Config.Configs;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.utils.ChatLib;
 import com.xiaojia.xiaojiaaddons.utils.CommandsUtils;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
@@ -14,7 +13,7 @@ public class AutoIsland {
 
     @SubscribeEvent
     public void onChatReceived(ClientChatReceivedEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.AutoIsland) {
                 String var2 = var1.message.getUnformattedText();
                 if (var2.equals("Evacuating to Hub...")) {

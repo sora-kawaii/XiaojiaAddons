@@ -3,7 +3,6 @@ package com.xiaojia.xiaojiaaddons.Features.Nether.Dojo;
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.BlockChangeEvent;
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.utils.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
@@ -85,7 +84,7 @@ public class Mastery {
     }
 
     public static void onEnter() {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.MasteryHelper) {
                 ControlUtils.setHeldItemIndex(0);
                 (new Thread(() -> {
@@ -103,7 +102,7 @@ public class Mastery {
 
     @SubscribeEvent
     public void onBlockChange(BlockChangeEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (DojoUtils.getTask() == EnumDojoTask.MASTERY) {
                 if ((float) var1.position.getX() >= MathUtils.getX(MinecraftUtils.getPlayer()) - 20.0F && !((float) var1.position.getX() > MathUtils.getX(MinecraftUtils.getPlayer()) + 20.0F)) {
                     if ((float) var1.position.getZ() >= MathUtils.getZ(MinecraftUtils.getPlayer()) - 20.0F && !((float) var1.position.getZ() > MathUtils.getZ(MinecraftUtils.getPlayer()) + 20.0F)) {
@@ -124,7 +123,7 @@ public class Mastery {
 
     @SubscribeEvent
     public void onTick(TickEndEvent event) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.MasteryAutoTurn) {
                 BlockPos var2 = null;
                 long var3 = 0L;
@@ -181,7 +180,7 @@ public class Mastery {
 
     @SubscribeEvent
     public void onRender(RenderWorldLastEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.MasteryHelper) {
                 if (DojoUtils.getTask() == EnumDojoTask.MASTERY) {
                     long var2 = TimeUtils.curTime();
@@ -223,7 +222,7 @@ public class Mastery {
 
     @SubscribeEvent
     public void onTickCheck(TickEndEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.MasteryHelper) {
                 if (DojoUtils.getTask() == EnumDojoTask.MASTERY) {
                     List var2 = EntityUtils.getEntities();

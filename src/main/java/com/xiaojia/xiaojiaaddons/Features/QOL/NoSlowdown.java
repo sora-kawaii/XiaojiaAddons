@@ -1,7 +1,6 @@
 package com.xiaojia.xiaojiaaddons.Features.QOL;
 
 import com.xiaojia.xiaojiaaddons.Config.Configs;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.XiaojiaAddons;
 import com.xiaojia.xiaojiaaddons.utils.ControlUtils;
 import com.xiaojia.xiaojiaaddons.utils.NetUtils;
@@ -16,7 +15,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class NoSlowdown {
     @SubscribeEvent
     public void onPlayerInteract(PlayerInteractEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (SkyblockUtils.isInSkyblock() || !Configs.DisableNoSlowOutofSkyBlock) {
                 try {
                     ItemStack var2 = ControlUtils.getHeldItemStack();

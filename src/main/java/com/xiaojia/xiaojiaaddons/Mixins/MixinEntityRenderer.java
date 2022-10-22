@@ -1,7 +1,6 @@
 package com.xiaojia.xiaojiaaddons.Mixins;
 
 import com.xiaojia.xiaojiaaddons.Config.Configs;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.utils.SkyblockUtils;
 import net.minecraft.client.renderer.EntityRenderer;
 import org.spongepowered.asm.mixin.Mixin;
@@ -17,13 +16,11 @@ public class MixinEntityRenderer {
             cancellable = true
     )
     public void onHurtCam(CallbackInfo var1) {
-        if (Checker.enabled) {
-            if (SkyblockUtils.isInSkyblock()) {
-                if (Configs.RemoveHurtCam) {
-                    var1.cancel();
-                }
-
+        if (SkyblockUtils.isInSkyblock()) {
+            if (Configs.RemoveHurtCam) {
+                var1.cancel();
             }
+
         }
     }
 }

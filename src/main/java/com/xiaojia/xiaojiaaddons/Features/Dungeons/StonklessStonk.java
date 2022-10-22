@@ -4,7 +4,6 @@ import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.BlockChangeEvent;
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
 import com.xiaojia.xiaojiaaddons.Features.Dungeons.Map.Dungeon;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.Inventory;
 import com.xiaojia.xiaojiaaddons.Objects.KeyBind;
 import com.xiaojia.xiaojiaaddons.XiaojiaAddons;
@@ -48,7 +47,7 @@ public class StonklessStonk {
     @SubscribeEvent
     public void onTick(TickEndEvent event) {
         this.facingPos = null;
-        if (Checker.enabled) {
+        if (true) {
             if (keyBind.isPressed()) {
                 should = !should;
                 ChatLib.chat(should ? "Stonkless Stonk &aactivated" : "Stonkless Stonk &cdeactivated");
@@ -133,7 +132,7 @@ public class StonklessStonk {
 
     @SubscribeEvent
     public void onRenderWorld(RenderWorldLastEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.StonklessStonkEnable && should) {
                 if (SkyblockUtils.isInDungeon()) {
                     if (!isInPuzzle) {
@@ -165,7 +164,7 @@ public class StonklessStonk {
 
     @SubscribeEvent
     public void onWorldLoad(WorldEvent.Load var1) {
-        if (Checker.enabled) {
+        if (true) {
             this.blockHashMap.clear();
             doneSecretsPos.clear();
             this.facingPos = null;
@@ -177,7 +176,7 @@ public class StonklessStonk {
             priority = EventPriority.HIGH
     )
     public void onRightClick(PlayerInteractEvent var1) throws Exception {
-        if (Checker.enabled) {
+        if (true) {
             if (this.facingPos != null) {
                 if (var1.action == Action.RIGHT_CLICK_BLOCK) {
                     if (!this.facingPos.equals(XiaojiaAddons.mc.objectMouseOver.getBlockPos())) {
@@ -193,7 +192,7 @@ public class StonklessStonk {
 
     @SubscribeEvent
     public void getSecretsonTick(TickEndEvent event) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.StonklessStonkEnable) {
                 if (SkyblockUtils.isInDungeon()) {
                     if (!isInPuzzle) {
@@ -226,7 +225,7 @@ public class StonklessStonk {
 
     @SubscribeEvent
     public void onBlockChange(BlockChangeEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (SkyblockUtils.isInDungeon()) {
                 if (MinecraftUtils.getPlayer() != null && MinecraftUtils.getWorld() != null) {
                     if (var1.position.distanceSq(MinecraftUtils.getPlayer().getPosition()) <= 20.0) {

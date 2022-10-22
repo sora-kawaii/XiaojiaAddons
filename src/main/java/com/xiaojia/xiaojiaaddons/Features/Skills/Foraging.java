@@ -2,7 +2,6 @@ package com.xiaojia.xiaojiaaddons.Features.Skills;
 
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.KeyBind;
 import com.xiaojia.xiaojiaaddons.utils.*;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -113,7 +112,7 @@ public class Foraging {
 
     @SubscribeEvent
     public void onTick(TickEndEvent event) {
-        if (Checker.enabled) {
+        if (true) {
             if (keyBind.isPressed()) {
                 this.isAutoForaging = !this.isAutoForaging;
                 ChatLib.chat(this.isAutoForaging ? "Auto Foraging &aactivated" : "Auto Foraging &cdeactivated");

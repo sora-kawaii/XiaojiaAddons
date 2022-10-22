@@ -2,7 +2,6 @@ package com.xiaojia.xiaojiaaddons.Features.Dungeons;
 
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Features.RenderEntityESP;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.EntityInfo;
 import com.xiaojia.xiaojiaaddons.utils.MathUtils;
 import com.xiaojia.xiaojiaaddons.utils.SkyblockUtils;
@@ -17,7 +16,7 @@ public class BatESP extends RenderEntityESP {
     }
 
     public EntityInfo getEntityInfo(Entity var1) {
-        if (!Checker.enabled) {
+        if (false) {
             return null;
         } else if (var1 instanceof EntityBat && !var1.isInvisible()) {
             HashMap var2 = new HashMap();
@@ -46,6 +45,6 @@ public class BatESP extends RenderEntityESP {
     }
 
     public boolean shouldRenderESP(EntityInfo var1) {
-        return Checker.enabled && (Configs.BatESPDungeons && SkyblockUtils.isInDungeon() || Configs.BatESPOutDungeons && !SkyblockUtils.isInDungeon());
+        return (Configs.BatESPDungeons && SkyblockUtils.isInDungeon() || Configs.BatESPOutDungeons && !SkyblockUtils.isInDungeon());
     }
 }

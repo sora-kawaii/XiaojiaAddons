@@ -5,7 +5,6 @@ import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
 import com.xiaojia.xiaojiaaddons.Features.Dungeons.Puzzles.AutoBlaze;
 import com.xiaojia.xiaojiaaddons.Features.Dungeons.Puzzles.Water.WaterSolver;
 import com.xiaojia.xiaojiaaddons.Features.Dungeons.StonklessStonk;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.Image;
 import com.xiaojia.xiaojiaaddons.Objects.KeyBind;
 import com.xiaojia.xiaojiaaddons.XiaojiaAddons;
@@ -710,7 +709,7 @@ public class Dungeon {
 
     @SubscribeEvent
     public void onRenderMap(RenderGameOverlayEvent.Pre var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (var1.type == ElementType.TEXT) {
                 if (Configs.MapDisplay) {
                     if (bossEntry <= runStarted || !Configs.DisableMapInBoss) {

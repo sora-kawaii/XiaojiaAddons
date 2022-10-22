@@ -6,8 +6,6 @@ import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
 import com.xiaojia.xiaojiaaddons.Features.Dungeons.Map.Dungeon;
 import com.xiaojia.xiaojiaaddons.Features.Dungeons.Map.Room;
 import com.xiaojia.xiaojiaaddons.Features.Dungeons.Puzzles.AutoPuzzle;
-import com.xiaojia.xiaojiaaddons.Features.Remote.ClientSocket;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.KeyBind;
 import com.xiaojia.xiaojiaaddons.utils.*;
 import net.minecraft.init.Blocks;
@@ -37,12 +35,12 @@ public class WaterSolver {
         this.keyBind = AutoPuzzle.keyBind;
     }
 
-    private static void upload(String var0) {
-        (new Thread(() -> {
-            String var1 = String.format("{\"uuid\": \"%s\", \"name\": \"%s\", \"water\": \"%s\", \"type\": \"%d\"}", SessionUtils.getUUID(), SessionUtils.getName(), var0, 11);
-            ClientSocket.chat(var1);
-        })).start();
-    }
+//    private static void upload(String var0) {
+//        (new Thread(() -> {
+//            String var1 = String.format("{\"uuid\": \"%s\", \"name\": \"%s\", \"water\": \"%s\", \"type\": \"%d\"}", SessionUtils.getUUID(), SessionUtils.getName(), var0, 11);
+//            ClientSocket.chat(var1);
+//        })).start();
+//    }
 
     public static void printLog() {
         System.err.println("WaterSolver Log:");
@@ -58,12 +56,7 @@ public class WaterSolver {
             ChatLib.chat(String.format("Estimate best solution: %.2fs (From Cache)", (double) var1.time * 0.25));
         } else {
             if (lastFlag != var0) {
-                if (WaterUtils.raw) {
-                    ChatLib.chat("This is a new pattern! Sent to server for calculation.");
-                    upload(WaterUtils.boardString);
-                } else {
-                    ChatLib.chat("Levers are flipped, so calculating without cache.");
-                }
+                ChatLib.chat("This is a new pattern! calculating without cache.");
 
                 WaterUtils.operations = new TreeMap();
                 WaterUtils.bestTime = 120;
@@ -112,7 +105,7 @@ public class WaterSolver {
     }
 
     public static void setRoom(Room var0) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.WaterSolver) {
                 room = var0;
                 if (room != null) {
@@ -145,7 +138,7 @@ public class WaterSolver {
 
             int var0;
             for (var0 = 0; var0 < 24; ++var0) {
-               System.arraycopy(board[var0], 0, originBoard[var0], 0, 21);
+                System.arraycopy(board[var0], 0, originBoard[var0], 0, 21);
             }
 
             WaterUtils.calculateVectors(room, facing);
@@ -201,7 +194,7 @@ public class WaterSolver {
 
     @SubscribeEvent
     public void onTickAuto(TickEndEvent var1) {
-        if (Checker.enabled && Configs.WaterSolver && Dungeon.currentRoom.equals("Water Board")) {
+        if (Configs.WaterSolver && Dungeon.currentRoom.equals("Water Board")) {
             if (this.keyBind.isPressed()) {
                 should = !should;
                 if (should) {

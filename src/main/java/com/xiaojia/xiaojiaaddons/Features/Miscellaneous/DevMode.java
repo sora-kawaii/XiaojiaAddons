@@ -4,7 +4,6 @@ import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.PacketReceivedEvent;
 import com.xiaojia.xiaojiaaddons.Events.PacketSendEvent;
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.Display.DisplayLine;
 import com.xiaojia.xiaojiaaddons.XiaojiaAddons;
 import com.xiaojia.xiaojiaaddons.utils.BlockUtils;
@@ -82,7 +81,7 @@ public class DevMode {
 
     @SubscribeEvent
     public void onReceive(PacketReceivedEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (SessionUtils.isDev()) {
                 if (Configs.ParticleSpawnMessage) {
                     if (var1.packet instanceof S2APacketParticles) {
@@ -96,7 +95,7 @@ public class DevMode {
 
     @SubscribeEvent
     public void onTick(TickEndEvent event) {
-        if (Checker.enabled) {
+        if (true) {
             if (SessionUtils.isDev()) {
                 synchronized (lines) {
                     lines.clear();
@@ -125,7 +124,7 @@ public class DevMode {
 
     @SubscribeEvent
     public void onEntitySpawn(EntityJoinWorldEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (SessionUtils.isDev()) {
                 if (Configs.EntityJoinEvent) {
                     ChatLib.debug(getLog(var1.entity));
@@ -136,7 +135,7 @@ public class DevMode {
 
     @SubscribeEvent
     public void onPacketSent(PacketSendEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (SessionUtils.isDev()) {
                 if (Configs.PacketSent) {
                     ChatLib.debug(var1.packet.getClass().toString());

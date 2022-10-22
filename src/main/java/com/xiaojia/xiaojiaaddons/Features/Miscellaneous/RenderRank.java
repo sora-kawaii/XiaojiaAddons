@@ -1,7 +1,6 @@
 package com.xiaojia.xiaojiaaddons.Features.Miscellaneous;
 
 import com.xiaojia.xiaojiaaddons.Config.Configs;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.XiaojiaAddons;
 import com.xiaojia.xiaojiaaddons.utils.ChatLib;
 import net.minecraft.client.renderer.entity.RenderPlayer;
@@ -30,7 +29,7 @@ public class RenderRank {
 
     @SubscribeEvent
     public void onRender(RenderLivingEvent.Specials.Pre var1) {
-        if (Checker.enabled && Configs.RenderRank) {
+        if (Configs.RenderRank) {
             String var2 = ChatLib.removeFormatting(var1.entity.getName());
             if (ColorName.rankMap.containsKey(var2)) {
                 if (var1.renderer instanceof RenderPlayer) {

@@ -2,7 +2,6 @@ package com.xiaojia.xiaojiaaddons.Features.Nether.Dojo;
 
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.LeftClickEvent;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.XiaojiaAddons;
 import com.xiaojia.xiaojiaaddons.utils.ChatLib;
 import com.xiaojia.xiaojiaaddons.utils.MathUtils;
@@ -18,7 +17,7 @@ import java.util.List;
 public class Force {
     @SubscribeEvent
     public void onLeftClick(LeftClickEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.ForceHelper) {
                 if (DojoUtils.getTask() == EnumDojoTask.FORCE) {
                     MovingObjectPosition var2 = XiaojiaAddons.mc.objectMouseOver;

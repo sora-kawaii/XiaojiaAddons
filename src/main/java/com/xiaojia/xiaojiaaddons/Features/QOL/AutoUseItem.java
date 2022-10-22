@@ -2,7 +2,6 @@ package com.xiaojia.xiaojiaaddons.Features.QOL;
 
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.KeyBind;
 import com.xiaojia.xiaojiaaddons.utils.ChatLib;
 import com.xiaojia.xiaojiaaddons.utils.ControlUtils;
@@ -24,7 +23,7 @@ public class AutoUseItem {
 
     @SubscribeEvent
     public void onTick(TickEndEvent event) {
-        if (Checker.enabled) {
+        if (true) {
             if (keyBind.isPressed()) {
                 this.enabled = !this.enabled;
                 if (this.enabled) {
@@ -49,19 +48,19 @@ public class AutoUseItem {
                 long var2 = TimeUtils.curTime();
 
                 try {
-                    if (Configs.PlasmaFluxCD != 0 && var2 - this.lastPlasma >= (long) (1000L * Configs.PlasmaFluxCD)) {
+                    if (Configs.PlasmaFluxCD != 0 && var2 - this.lastPlasma >= (1000L * Configs.PlasmaFluxCD)) {
                         this.lastPlasma = var2;
                         this.queue.add("Plasma");
                         this.queue.add(ControlUtils.getHeldItemIndex() + "");
                     }
 
-                    if (Configs.HealingWandCD != 0 && var2 - this.lastHealing >= (long) (1000L * Configs.HealingWandCD)) {
+                    if (Configs.HealingWandCD != 0 && var2 - this.lastHealing >= (1000L * Configs.HealingWandCD)) {
                         this.lastHealing = var2;
                         this.queue.add("Healing");
                         this.queue.add(ControlUtils.getHeldItemIndex() + "");
                     }
 
-                    if (Configs.GyroCD != 0 && var2 - this.lastGyro >= (long) (1000L * Configs.GyroCD)) {
+                    if (Configs.GyroCD != 0 && var2 - this.lastGyro >= (1000L * Configs.GyroCD)) {
                         this.lastGyro = var2;
                         this.queue.add("Gyro");
                         this.queue.add(ControlUtils.getHeldItemIndex() + "");

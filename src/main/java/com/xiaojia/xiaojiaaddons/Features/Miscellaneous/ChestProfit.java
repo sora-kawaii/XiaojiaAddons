@@ -2,7 +2,6 @@ package com.xiaojia.xiaojiaaddons.Features.Miscellaneous;
 
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Features.Remote.LowestBin;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.Inventory;
 import com.xiaojia.xiaojiaaddons.utils.*;
 import net.minecraft.item.ItemStack;
@@ -32,7 +31,7 @@ public class ChestProfit {
 
     @SubscribeEvent
     public void onTick(GuiScreenEvent.DrawScreenEvent var1) {
-        if (Checker.enabled && SkyblockUtils.isInDungeon()) {
+        if (SkyblockUtils.isInDungeon()) {
             if (Configs.ShowChestProfit) {
                 String var2 = ControlUtils.getOpenedInventoryName();
                 if (!Arrays.stream(chestNames).noneMatch((var1x) -> {

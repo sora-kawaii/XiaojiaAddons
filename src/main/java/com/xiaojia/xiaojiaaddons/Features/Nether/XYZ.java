@@ -2,7 +2,6 @@ package com.xiaojia.xiaojiaaddons.Features.Nether;
 
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.PacketSendEvent;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.utils.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -71,7 +70,7 @@ public class XYZ {
 
     @SubscribeEvent
     public void onRightClick(PlayerInteractEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.XYZHelper) {
                 if (SkyblockUtils.isInMysticMarsh()) {
                     if (var1.action == Action.RIGHT_CLICK_AIR) {

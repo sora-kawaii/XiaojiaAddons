@@ -2,7 +2,6 @@ package com.xiaojia.xiaojiaaddons.Features.QOL;
 
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.KeyBind;
 import com.xiaojia.xiaojiaaddons.Objects.StepEvent;
 import com.xiaojia.xiaojiaaddons.utils.ChatLib;
@@ -22,7 +21,7 @@ public class SwordSwap extends StepEvent {
     }
 
     public void execute() {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.GhostSwordSwap) {
                 if (should) {
                     if (HotbarUtils.checkSoulwhip() && HotbarUtils.checkEmeraldBlade()) {
@@ -55,7 +54,7 @@ public class SwordSwap extends StepEvent {
 
     @SubscribeEvent
     public void onTick(TickEndEvent event) {
-        if (Checker.enabled) {
+        if (true) {
             if (keyBind.isPressed()) {
                 should = !should;
                 ChatLib.chat(should ? "Ghost SwordSwap &aactivated" : "Ghost SwordSwap &cdeactivated");

@@ -2,7 +2,6 @@ package com.xiaojia.xiaojiaaddons.Features.QOL;
 
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.ItemDrawnEvent;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.Inventory;
 import com.xiaojia.xiaojiaaddons.utils.ChatLib;
 import com.xiaojia.xiaojiaaddons.utils.ControlUtils;
@@ -30,7 +29,7 @@ public class ShowAttribute {
     @SubscribeEvent
     public void onItemDrawn(ItemDrawnEvent var1) {
         Inventory var2 = ControlUtils.getOpenedInventory();
-        if (Checker.enabled && var2 != null && Configs.ShowAttribute) {
+        if (var2 != null && Configs.ShowAttribute) {
             ItemStack var3 = var1.itemStack;
             if (var3 != null && var3.hasDisplayName()) {
                 String var4 = ChatLib.removeFormatting(var3.getDisplayName()).toLowerCase();

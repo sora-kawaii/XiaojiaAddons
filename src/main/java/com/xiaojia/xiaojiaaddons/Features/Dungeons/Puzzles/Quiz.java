@@ -8,7 +8,6 @@ import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
 import com.xiaojia.xiaojiaaddons.Features.Dungeons.Map.Dungeon;
 import com.xiaojia.xiaojiaaddons.Features.Remote.RemoteUtils;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.utils.*;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
@@ -66,7 +65,7 @@ public class Quiz {
 
     @SubscribeEvent
     public void onTickRemove(TickEndEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.QuizSolver) {
                 if (SkyblockUtils.isInDungeon()) {
                     if (MinecraftUtils.getWorld() != null) {
@@ -102,7 +101,7 @@ public class Quiz {
 
     @SubscribeEvent
     public void onReceive(ClientChatReceivedEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (var1.type == 0) {
                 if (Configs.QuizSolver) {
                     if (SkyblockUtils.isInDungeon()) {
@@ -151,7 +150,7 @@ public class Quiz {
             priority = EventPriority.HIGH
     )
     public void onPlayerInteract(PlayerInteractEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.QuizSolver) {
                 if (var1.action == Action.RIGHT_CLICK_BLOCK || var1.action == Action.LEFT_CLICK_BLOCK) {
                     Block var2 = BlockUtils.getBlockAt(var1.pos);

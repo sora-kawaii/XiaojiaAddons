@@ -4,7 +4,6 @@ import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Features.Miscellaneous.DevMode;
 import com.xiaojia.xiaojiaaddons.Features.Miscellaneous.PacketRelated;
 import com.xiaojia.xiaojiaaddons.Features.Skills.Fishing;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.Display.Display;
 import com.xiaojia.xiaojiaaddons.Objects.Display.DisplayLine;
 import com.xiaojia.xiaojiaaddons.Objects.Inventory;
@@ -48,7 +47,7 @@ public class DisplayDayAndCoords {
     @SubscribeEvent
     public void renderString(RenderGameOverlayEvent.Pre var1) {
         if (var1.type == ElementType.TEXT) {
-            if (Checker.enabled) {
+            if (true) {
                 EntityPlayerSP var2 = MinecraftUtils.getPlayer();
                 BlockPos var3 = MathUtils.getBlockPos();
                 if (var2 != null && var3 != null) {

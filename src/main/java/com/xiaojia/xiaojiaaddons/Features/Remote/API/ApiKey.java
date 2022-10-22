@@ -2,7 +2,6 @@ package com.xiaojia.xiaojiaaddons.Features.Remote.API;
 
 import com.xiaojia.xiaojiaaddons.Config.Config;
 import com.xiaojia.xiaojiaaddons.Config.Configs;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.utils.ChatLib;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -22,7 +21,7 @@ public class ApiKey {
 
     @SubscribeEvent
     public void onChatMessage(ClientChatReceivedEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (var1.type == 0) {
                 String var2 = var1.message.getUnformattedText();
                 if (var2 != null) {

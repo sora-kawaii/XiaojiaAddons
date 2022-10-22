@@ -3,7 +3,6 @@ package com.xiaojia.xiaojiaaddons.Features.Skills;
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.PacketReceivedEvent;
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.KeyBind;
 import com.xiaojia.xiaojiaaddons.Sounds.SoundHandler;
 import com.xiaojia.xiaojiaaddons.Sounds.Sounds;
@@ -96,7 +95,7 @@ public class Fishing {
 
     @SubscribeEvent
     public void onParticle(PacketReceivedEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.AutoPullRod) {
                 if (var1.packet instanceof S2APacketParticles) {
                     S2APacketParticles var2 = (S2APacketParticles) var1.packet;
@@ -128,7 +127,7 @@ public class Fishing {
 
     @SubscribeEvent
     public void onTickMove(TickEndEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.AutoMove) {
                 if (this.autoMoveKeyBind.isPressed()) {
                     this.shouldMove = !this.shouldMove;
@@ -147,7 +146,7 @@ public class Fishing {
                     }
 
                     long var3 = TimeUtils.curTime();
-                    if (Configs.AutoMoveRecast && var3 - this.lastReeledIn >= (long) (1000L * Configs.AutoMoveRecastTime)) {
+                    if (Configs.AutoMoveRecast && var3 - this.lastReeledIn >= (1000L * Configs.AutoMoveRecastTime)) {
                         this.lastReeledIn = TimeUtils.curTime();
                         (new Thread(this::reelIn)).start();
                     }
@@ -270,7 +269,7 @@ public class Fishing {
 
     @SubscribeEvent
     public void onLoad(WorldEvent.Load var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.AutoMove) {
                 if (Configs.SafeAutoMove) {
                     if (this.shouldMove) {
@@ -283,7 +282,7 @@ public class Fishing {
 
     @SubscribeEvent
     public void onReceive(ClientChatReceivedEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.AutoMove) {
                 String var2 = ChatLib.removeFormatting(var1.message.getUnformattedText());
                 if (var2.matches(" ☠ [a-zA-Z0-9_]+ was killed by Lord Jawbus.") && Configs.JawbusWarn) {
@@ -319,7 +318,7 @@ public class Fishing {
 
     @SubscribeEvent
     public void onTickPushingThread(TickEndEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (!this.shouldMove) {
                 if (this.pushingThread != null) {
                     this.pushingThread.interrupt();

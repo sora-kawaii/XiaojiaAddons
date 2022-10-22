@@ -2,7 +2,6 @@ package com.xiaojia.xiaojiaaddons.Features.Miscellaneous;
 
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.XiaojiaAddons;
 import com.xiaojia.xiaojiaaddons.utils.ChatLib;
 import com.xiaojia.xiaojiaaddons.utils.TimeUtils;
@@ -39,7 +38,7 @@ public class EasyTrigger {
 
     @SubscribeEvent
     public void onReceive(ClientChatReceivedEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.EasyTrigger) {
                 String var2 = ChatLib.removeFormatting(var1.message.getUnformattedText());
                 Pattern var3;

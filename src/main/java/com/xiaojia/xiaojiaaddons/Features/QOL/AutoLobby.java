@@ -2,7 +2,6 @@ package com.xiaojia.xiaojiaaddons.Features.QOL;
 
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.utils.*;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
 import net.minecraftforge.event.world.WorldEvent;
@@ -48,7 +47,7 @@ public class AutoLobby {
 
     @SubscribeEvent
     public void onTick(TickEndEvent event) {
-        if (Checker.enabled) {
+        if (true) {
             if (!this.isSending) {
                 if (MinecraftUtils.getPlayer() != null) {
                     double var2 = MathUtils.getY(MinecraftUtils.getPlayer());

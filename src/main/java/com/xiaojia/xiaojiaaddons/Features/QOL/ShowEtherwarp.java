@@ -1,7 +1,6 @@
 package com.xiaojia.xiaojiaaddons.Features.QOL;
 
 import com.xiaojia.xiaojiaaddons.Config.Configs;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.utils.*;
 import net.minecraft.block.Block;
 import net.minecraft.client.entity.EntityPlayerSP;
@@ -28,7 +27,7 @@ public class ShowEtherwarp {
 
     @SubscribeEvent
     public void onRenderWorld(RenderWorldLastEvent var1) {
-        if (Checker.enabled && Configs.ShowEtherwarp) {
+        if (Configs.ShowEtherwarp) {
             EntityPlayerSP var2 = MinecraftUtils.getPlayer();
             if (var2 != null && var2.isSneaking()) {
                 ItemStack var3 = ControlUtils.getHeldItemStack();

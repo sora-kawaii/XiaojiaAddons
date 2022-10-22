@@ -2,7 +2,6 @@ package com.xiaojia.xiaojiaaddons.Features.Dungeons.Puzzles;
 
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Features.Dungeons.Map.Room;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
@@ -16,7 +15,7 @@ public class TicTacToe {
 
     @SubscribeEvent
     public void onRightClickButton(PlayerInteractEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.TicTacToeSolver) {
             }
         }

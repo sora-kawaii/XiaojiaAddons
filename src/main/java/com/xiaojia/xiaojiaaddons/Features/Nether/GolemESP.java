@@ -2,7 +2,6 @@ package com.xiaojia.xiaojiaaddons.Features.Nether;
 
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Features.RenderEntityESP;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.EntityInfo;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.monster.EntityGolem;
@@ -11,7 +10,7 @@ import java.util.HashMap;
 
 public class GolemESP extends RenderEntityESP {
     public EntityInfo getEntityInfo(Entity var1) {
-        if (!Checker.enabled) {
+        if (false) {
             return null;
         } else if (!Configs.GolemESP) {
             return null;

@@ -3,7 +3,6 @@ package com.xiaojia.xiaojiaaddons.Features.Skills;
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.BlockChangeEvent;
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.Inventory;
 import com.xiaojia.xiaojiaaddons.Objects.KeyBind;
 import com.xiaojia.xiaojiaaddons.XiaojiaAddons;
@@ -158,7 +157,7 @@ public class AutoBuildFarmVertical {
     }
 
     private static boolean enabled() {
-        return isBuilding && Checker.enabled;
+        return isBuilding;
     }
 
     private static boolean isLightBlock(ItemStack var0) {
@@ -204,7 +203,7 @@ public class AutoBuildFarmVertical {
 
     @SubscribeEvent
     public void onTickStep5(TickEndEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (step == 5) {
                 if (Configs.AutoBuildFarm5) {
                     if (isBuilding) {
@@ -268,7 +267,7 @@ public class AutoBuildFarmVertical {
 
     @SubscribeEvent
     public void onRenderWorld(RenderWorldLastEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.AutoBuildFarm1) {
                 ArrayList var2 = new ArrayList();
                 var2.addAll(blocksOne);
@@ -314,7 +313,7 @@ public class AutoBuildFarmVertical {
 
     @SubscribeEvent
     public void onTickStep2(TickEndEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (step == 2) {
                 if (Configs.AutoBuildFarm2) {
                     if (isBuilding) {
@@ -376,7 +375,7 @@ public class AutoBuildFarmVertical {
 
     @SubscribeEvent
     public void onTick(TickEndEvent event) {
-        if (Checker.enabled) {
+        if (true) {
             if (keyBind.isPressed()) {
                 isBuilding = !isBuilding;
                 ChatLib.chat("Auto Build Farm - " + step + (isBuilding ? " &aactivated" : " &cdeactivated"));
@@ -482,7 +481,7 @@ public class AutoBuildFarmVertical {
 
     @SubscribeEvent
     public void onReceive(ClientChatReceivedEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (var1.type == 0) {
                 if (ChatLib.removeFormatting(var1.message.getUnformattedText()).matches("You picked up \\d+ items from your item stash!|Couldn't unstash your items! Your inventory is full!")) {
                     picked = true;
@@ -494,7 +493,7 @@ public class AutoBuildFarmVertical {
 
     @SubscribeEvent
     public void onTickStep4(TickEndEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (step == 4) {
                 if (Configs.AutoBuildFarm4) {
                     if (isBuilding) {
@@ -649,7 +648,7 @@ public class AutoBuildFarmVertical {
 
     @SubscribeEvent
     public void onTickStep3(TickEndEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (step == 3) {
                 if (Configs.AutoBuildFarm3) {
                     if (isBuilding) {

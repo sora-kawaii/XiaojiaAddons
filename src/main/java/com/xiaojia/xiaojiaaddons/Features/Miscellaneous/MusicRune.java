@@ -1,7 +1,6 @@
 package com.xiaojia.xiaojiaaddons.Features.Miscellaneous;
 
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.utils.MinecraftUtils;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
@@ -27,7 +26,7 @@ public class MusicRune {
 
     @SubscribeEvent
     public void onTick(TickEndEvent event) {
-        if (Checker.enabled) {
+        if (true) {
         }
     }
 }

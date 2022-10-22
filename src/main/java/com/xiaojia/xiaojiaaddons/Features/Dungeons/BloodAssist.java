@@ -4,7 +4,6 @@ import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
 import com.xiaojia.xiaojiaaddons.Features.Dungeons.Map.Dungeon;
 import com.xiaojia.xiaojiaaddons.Features.Dungeons.Map.Vector2i;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.utils.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityArmorStand;
@@ -66,7 +65,7 @@ public class BloodAssist {
 
     @SubscribeEvent
     public void onEntityJoin(EntityJoinWorldEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.BloodAssist) {
                 if (var1.entity instanceof EntityArmorStand) {
                     newArmorStands.offerLast(var1.entity);
@@ -110,7 +109,7 @@ public class BloodAssist {
 
     @SubscribeEvent
     public void onTick(TickEndEvent event) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.BloodAssist) {
                 if (SkyblockUtils.isInDungeon()) {
                     ArrayList var2 = new ArrayList();
@@ -190,7 +189,7 @@ public class BloodAssist {
 
     @SubscribeEvent
     public void onRenderWorld(RenderWorldLastEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.BloodAssist) {
                 if (SkyblockUtils.isInDungeon()) {
                     if (Dungeon.bossEntry <= Dungeon.runStarted) {

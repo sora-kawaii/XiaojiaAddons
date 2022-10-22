@@ -2,7 +2,6 @@ package com.xiaojia.xiaojiaaddons.Features.Skills;
 
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.utils.*;
 import net.minecraft.util.BlockPos;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
@@ -27,7 +26,7 @@ public class JadeCrystalHelper {
 
     @SubscribeEvent
     public void onReceiveChat(ClientChatReceivedEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.JadeCrystal) {
                 if (SkyblockUtils.isInCrystalHollows()) {
                     if (var1.type == 2) {
@@ -68,7 +67,7 @@ public class JadeCrystalHelper {
 
     @SubscribeEvent
     public void onTick(TickEndEvent event) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.JadeCrystal) {
                 if (SkyblockUtils.isInCrystalHollows()) {
                     if (MinecraftUtils.getPlayer() != null && MinecraftUtils.getPlayer().getPosition() != null) {
@@ -157,7 +156,7 @@ public class JadeCrystalHelper {
 
     @SubscribeEvent
     public void onRenderWorld(RenderWorldLastEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.JadeCrystal) {
                 if (SkyblockUtils.isInCrystalHollows()) {
                     if (!this.result.isEmpty()) {

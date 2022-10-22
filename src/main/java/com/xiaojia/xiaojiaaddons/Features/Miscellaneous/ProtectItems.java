@@ -4,7 +4,6 @@ import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.ItemDropEvent;
 import com.xiaojia.xiaojiaaddons.Events.WindowClickEvent;
 import com.xiaojia.xiaojiaaddons.Features.Remote.LowestBin;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.utils.ChatLib;
 import com.xiaojia.xiaojiaaddons.utils.ControlUtils;
 import com.xiaojia.xiaojiaaddons.utils.MinecraftUtils;
@@ -16,7 +15,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class ProtectItems {
 
     private void protect(Event var1, String var2) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.ProtectItems) {
                 var1.setCanceled(true);
                 ChatLib.chat("Stopped from " + var2 + " that item.");
@@ -57,7 +56,7 @@ public class ProtectItems {
 
     @SubscribeEvent
     public void onItemDrop(ItemDropEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.ProtectItems) {
                 if (!SkyblockUtils.isInDungeon()) {
                     if (this.shouldProtect(var1.itemStack)) {

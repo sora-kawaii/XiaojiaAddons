@@ -2,7 +2,6 @@ package com.xiaojia.xiaojiaaddons.utils;
 
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.Inventory;
 import com.xiaojia.xiaojiaaddons.Objects.KeyBind;
 import com.xiaojia.xiaojiaaddons.XiaojiaAddons;
@@ -593,14 +592,12 @@ public class ControlUtils {
 
     @SubscribeEvent
     public void onTickUpdateInventory(TickEndEvent var1) {
-        if (Checker.enabled) {
-            EntityPlayerSP var2 = MinecraftUtils.getPlayer();
-            if (var2 != null && var2.openContainer != null) {
-                openedInventory = new Inventory(var2.openContainer);
-            } else {
-                openedInventory = null;
-            }
-
+        EntityPlayerSP var2 = MinecraftUtils.getPlayer();
+        if (var2 != null && var2.openContainer != null) {
+            openedInventory = new Inventory(var2.openContainer);
+        } else {
+            openedInventory = null;
         }
+
     }
 }

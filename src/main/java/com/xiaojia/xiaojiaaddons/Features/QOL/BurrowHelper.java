@@ -3,7 +3,6 @@ package com.xiaojia.xiaojiaaddons.Features.QOL;
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.PacketReceivedEvent;
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.utils.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.init.Blocks;
@@ -54,7 +53,7 @@ public class BurrowHelper {
 
     @SubscribeEvent
     public void onRender(RenderWorldLastEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (this.solution != null) {
                 GuiUtils.enableESP();
                 GuiUtils.renderBeaconBeam(this.solution, 16516076, 0.5F);
@@ -66,7 +65,7 @@ public class BurrowHelper {
 
     @SubscribeEvent
     public void onTickUpdate(TickEndEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.BurrowHelper) {
                 long var2 = TimeUtils.curTime();
                 if (this.solution != null && this.solution.getY() < 5 && var2 - lastUpdate > 1000L) {
@@ -100,7 +99,7 @@ public class BurrowHelper {
 
     @SubscribeEvent
     public void onChatMessage(ClientChatReceivedEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.BurrowHelper) {
                 if (var1.type == 0) {
                     String var2 = EnumChatFormatting.getTextWithoutFormattingCodes(var1.message.getUnformattedText());
@@ -117,7 +116,7 @@ public class BurrowHelper {
 
     @SubscribeEvent
     public void onPacketReceived(PacketReceivedEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.BurrowHelper) {
                 if (var1.packet instanceof S2APacketParticles) {
                     S2APacketParticles var2 = (S2APacketParticles) var1.packet;
@@ -146,7 +145,7 @@ public class BurrowHelper {
 
     @SubscribeEvent
     public void onRightClick(PlayerInteractEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.BurrowHelper) {
                 if (var1.action == Action.RIGHT_CLICK_AIR || var1.action == Action.RIGHT_CLICK_BLOCK) {
                     ItemStack var2 = Minecraft.getMinecraft().thePlayer.getHeldItem();

@@ -2,7 +2,6 @@ package com.xiaojia.xiaojiaaddons.Features.Slayers;
 
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Features.RenderEntityESP;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.EntityInfo;
 import com.xiaojia.xiaojiaaddons.utils.SkyblockUtils;
 import net.minecraft.entity.Entity;
@@ -31,7 +30,7 @@ public class Voidgloom extends RenderEntityESP {
     }
 
     public EntityInfo getEntityInfo(Entity var1) {
-        if (Checker.enabled && SkyblockUtils.isInEndIsland()) {
+        if (SkyblockUtils.isInEndIsland()) {
             if (!Configs.EndermanMiniESP) {
                 return null;
             } else if (var1 instanceof EntityArmorStand && var1.getName() != null) {

@@ -4,7 +4,6 @@ import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
 import com.xiaojia.xiaojiaaddons.Features.Dungeons.Map.Vector3i;
 import com.xiaojia.xiaojiaaddons.Features.Skills.GemstoneESP;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.Image;
 import com.xiaojia.xiaojiaaddons.Objects.KeyBind;
 import com.xiaojia.xiaojiaaddons.utils.*;
@@ -89,7 +88,7 @@ public class FindFairy {
     }
 
     private boolean enabled() {
-        return Checker.enabled && this.should && SkyblockUtils.isInCrystalHollows();
+        return this.should && SkyblockUtils.isInCrystalHollows();
     }
 
     private void check(int var1, int var2, int var3) {

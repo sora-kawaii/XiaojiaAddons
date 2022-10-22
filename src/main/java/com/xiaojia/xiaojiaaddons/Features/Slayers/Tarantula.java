@@ -2,7 +2,6 @@ package com.xiaojia.xiaojiaaddons.Features.Slayers;
 
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Features.RenderEntityESP;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.EntityInfo;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityArmorStand;
@@ -35,9 +34,7 @@ public class Tarantula extends RenderEntityESP {
     }
 
     public EntityInfo getEntityInfo(Entity var1) {
-        if (!Checker.enabled) {
-            return null;
-        } else if (!Configs.TaraMiniESP) {
+        if (!Configs.TaraMiniESP) {
             return null;
         } else if (var1 instanceof EntityArmorStand && var1.getName() != null) {
             Iterator var2 = kindColorMap.entrySet().iterator();

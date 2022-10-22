@@ -2,7 +2,6 @@ package com.xiaojia.xiaojiaaddons.Features.Nether.Dojo;
 
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.LeftClickEvent;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.XiaojiaAddons;
 import com.xiaojia.xiaojiaaddons.utils.ChatLib;
 import com.xiaojia.xiaojiaaddons.utils.ControlUtils;
@@ -20,7 +19,7 @@ import java.util.List;
 public class Discipline {
     @SubscribeEvent
     public void onLeftClick(LeftClickEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.DisciplineHelper) {
                 if (DojoUtils.getTask() == EnumDojoTask.DISCIPLINE) {
                     MovingObjectPosition var2 = XiaojiaAddons.mc.objectMouseOver;

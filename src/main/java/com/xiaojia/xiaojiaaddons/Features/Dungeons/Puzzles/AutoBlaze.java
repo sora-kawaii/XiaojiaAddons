@@ -5,7 +5,6 @@ import com.xiaojia.xiaojiaaddons.Events.PacketReceivedEvent;
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
 import com.xiaojia.xiaojiaaddons.Features.Dungeons.Map.Dungeon;
 import com.xiaojia.xiaojiaaddons.Features.Dungeons.Map.Room;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.Cube;
 import com.xiaojia.xiaojiaaddons.Objects.KeyBind;
 import com.xiaojia.xiaojiaaddons.Objects.Line;
@@ -682,7 +681,7 @@ public class AutoBlaze {
 
     @SubscribeEvent
     public void onTick(TickEndEvent event) {
-        if (Checker.enabled && Configs.AutoBlaze && Dungeon.currentRoom.equals("Blaze")) {
+        if (Configs.AutoBlaze && Dungeon.currentRoom.equals("Blaze")) {
             if (this.keyBind.isPressed()) {
                 this.should = !this.should;
                 if (this.should) {

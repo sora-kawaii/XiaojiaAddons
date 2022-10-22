@@ -4,7 +4,6 @@ import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.PacketReceivedEvent;
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
 import com.xiaojia.xiaojiaaddons.Features.Dungeons.Map.Vector2i;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.utils.*;
 import net.minecraft.network.play.server.S08PacketPlayerPosLook;
 import net.minecraft.util.BlockPos;
@@ -29,7 +28,7 @@ public class TeleportMaze {
 
     @SubscribeEvent
     public void onRenderWorld(RenderWorldLastEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             Iterator var2 = this.shouldNot.iterator();
 
             while (var2.hasNext()) {
@@ -62,7 +61,7 @@ public class TeleportMaze {
 
     @SubscribeEvent
     public void onPacketReceived(PacketReceivedEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.TeleportMazeSolver && SkyblockUtils.isInDungeon()) {
                 if (var1.packet instanceof S08PacketPlayerPosLook) {
                     if (this.justPassPad) {
@@ -76,7 +75,7 @@ public class TeleportMaze {
 
     @SubscribeEvent
     public void onTick(TickEndEvent event) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.TeleportMazeSolver && SkyblockUtils.isInDungeon()) {
                 int var2 = MathUtils.getBlockX(MinecraftUtils.getPlayer());
                 int var3 = 69;

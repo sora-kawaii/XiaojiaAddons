@@ -1,7 +1,6 @@
 package com.xiaojia.xiaojiaaddons.Features.Accentry;
 
 import com.xiaojia.xiaojiaaddons.Config.Configs;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.utils.ChatLib;
 import net.minecraft.event.ClickEvent.Action;
 import net.minecraft.util.ChatStyle;
@@ -81,37 +80,35 @@ public class AutoQuestion {
 
     @SubscribeEvent
     public void onReceive(ClientChatReceivedEvent var1) {
-        if (Checker.enabled) {
-            if (Configs.AutoQuestion) {
-                String var2 = ChatLib.removeFormatting(var1.message.getUnformattedText());
-                if (this.answer.containsKey(currentQuestion) && Arrays.asList((Object[]) this.answer.get(currentQuestion)).contains(var2)) {
+        if (Configs.AutoQuestion) {
+            String var2 = ChatLib.removeFormatting(var1.message.getUnformattedText());
+            if (this.answer.containsKey(currentQuestion) && Arrays.asList((Object[]) this.answer.get(currentQuestion)).contains(var2)) {
+                (new Thread(() -> {
+                    try {
+                        Thread.sleep(Configs.AutoQuestionCD);
+                        this.click(var1.message);
+                    } catch (Exception var3) {
+                        var3.printStackTrace();
+                    }
+
+                })).start();
+            } else if (this.answer.containsKey(var2)) {
+                currentQuestion = var2;
+                if (var2.contains("[简答题]")) {
                     (new Thread(() -> {
                         try {
                             Thread.sleep(Configs.AutoQuestionCD);
-                            this.click(var1.message);
+                            ChatLib.say(((String[]) this.answer.get(var2))[0]);
                         } catch (Exception var3) {
                             var3.printStackTrace();
                         }
 
                     })).start();
-                } else if (this.answer.containsKey(var2)) {
-                    currentQuestion = var2;
-                    if (var2.contains("[简答题]")) {
-                        (new Thread(() -> {
-                            try {
-                                Thread.sleep(Configs.AutoQuestionCD);
-                                ChatLib.say(((String[]) this.answer.get(var2))[0]);
-                            } catch (Exception var3) {
-                                var3.printStackTrace();
-                            }
-
-                        })).start();
-                    }
-                } else if (var2.contains("[单选题]") || var2.contains("[简答题]")) {
-                    newQuestions.add(var2);
                 }
-
+            } else if (var2.contains("[单选题]") || var2.contains("[简答题]")) {
+                newQuestions.add(var2);
             }
+
         }
     }
 }

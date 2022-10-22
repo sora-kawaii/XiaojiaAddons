@@ -3,7 +3,6 @@ package com.xiaojia.xiaojiaaddons.Mixins;
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Features.Miscellaneous.ColorName;
 import com.xiaojia.xiaojiaaddons.Features.Miscellaneous.ItemRename;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.utils.ChatLib;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -59,7 +58,7 @@ public class MixinItemStack {
             cancellable = true
     )
     public void getReturnValue(CallbackInfoReturnable var1, String var2) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.ColorNameItem) {
                 var2 = ColorName.addColorName(var2);
                 var1.setReturnValue(var2);

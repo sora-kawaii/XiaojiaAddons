@@ -2,7 +2,6 @@ package com.xiaojia.xiaojiaaddons.Features.Bestiary;
 
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.KeyBind;
 import com.xiaojia.xiaojiaaddons.XiaojiaAddons;
 import com.xiaojia.xiaojiaaddons.utils.*;
@@ -30,7 +29,7 @@ public class AutoScatha {
 
     @SubscribeEvent
     public void onTick(TickEndEvent event) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.AutoScatha) {
                 EntityPlayerSP var2 = MinecraftUtils.getPlayer();
                 if (var2 != null) {
@@ -111,7 +110,7 @@ public class AutoScatha {
 
     @SubscribeEvent
     public void onReceived(ClientChatReceivedEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.AutoScatha) {
                 if (ChatLib.removeFormatting(var1.message.getUnformattedText()).trim().equals("You hear the sound of something approaching...")) {
                     ChatLib.chat("Worm spawned!");

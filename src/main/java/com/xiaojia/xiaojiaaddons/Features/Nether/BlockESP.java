@@ -2,7 +2,6 @@ package com.xiaojia.xiaojiaaddons.Features.Nether;
 
 import com.xiaojia.xiaojiaaddons.Events.BlockChangeEvent;
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.utils.*;
 import net.minecraft.block.Block;
 import net.minecraft.util.BlockPos;
@@ -47,7 +46,7 @@ public abstract class BlockESP {
 
     @SubscribeEvent
     public void onTickCheck(TickEndEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (MinecraftUtils.getWorld() != null) {
                 if (MinecraftUtils.getPlayer() != null) {
                     if (TimeUtils.curTime() - lastCheck > 1000L) {
@@ -69,7 +68,7 @@ public abstract class BlockESP {
 
     @SubscribeEvent
     public void onTick(TickEndEvent event) {
-        if (Checker.enabled) {
+        if (true) {
             if (this.isEnabled()) {
                 if (this.scanThread == null || !this.scanThread.isAlive()) {
                     this.scanThread = new Thread(() -> {
@@ -117,7 +116,7 @@ public abstract class BlockESP {
 
     @SubscribeEvent
     public void onRenderWorld(RenderWorldLastEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (this.isEnabled()) {
                 synchronized (this.blocks) {
                     Iterator var3 = this.blocks.iterator();

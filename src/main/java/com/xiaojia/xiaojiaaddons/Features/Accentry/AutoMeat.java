@@ -2,7 +2,6 @@ package com.xiaojia.xiaojiaaddons.Features.Accentry;
 
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.Inventory;
 import com.xiaojia.xiaojiaaddons.utils.ControlUtils;
 import com.xiaojia.xiaojiaaddons.utils.MerchantUtils;
@@ -14,7 +13,7 @@ public class AutoMeat {
     private Thread sellThread = null;
 
     private EnumNPC should() {
-        if (Checker.enabled && Configs.AutoMeat) {
+        if (Configs.AutoMeat) {
             Inventory var1 = ControlUtils.getOpenedInventory();
             if (var1 == null) {
                 return EnumNPC.NONE;

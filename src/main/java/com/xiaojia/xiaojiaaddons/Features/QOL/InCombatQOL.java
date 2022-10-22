@@ -2,7 +2,6 @@ package com.xiaojia.xiaojiaaddons.Features.QOL;
 
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.Inventory;
 import com.xiaojia.xiaojiaaddons.Objects.KeyBind;
 import com.xiaojia.xiaojiaaddons.utils.*;
@@ -163,7 +162,7 @@ public class InCombatQOL {
 
     @SubscribeEvent
     public void onPostGuiRender(GuiScreenEvent.DrawScreenEvent.Post var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (this.openWardrobe || this.openTrade || this.autoSelling) {
                 Inventory var2 = ControlUtils.getOpenedInventory();
                 if (var2 != null && var2.getName() != null) {
@@ -267,7 +266,7 @@ public class InCombatQOL {
 
     @SubscribeEvent
     public void onTick(TickEndEvent event) {
-        if (Checker.enabled) {
+        if (true) {
             for (int var2 = 0; var2 < 9; ++var2) {
                 if (((KeyBind) this.armorKeyBinds.get(var2)).isPressed()) {
                     ChatLib.chat(String.format("Swapping to %d", var2));

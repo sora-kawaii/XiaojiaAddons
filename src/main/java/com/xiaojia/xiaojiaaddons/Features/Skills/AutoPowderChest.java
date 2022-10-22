@@ -3,7 +3,6 @@ package com.xiaojia.xiaojiaaddons.Features.Skills;
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.PacketReceivedEvent;
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.KeyBind;
 import com.xiaojia.xiaojiaaddons.utils.*;
 import net.minecraft.init.Blocks;
@@ -44,7 +43,7 @@ public class AutoPowderChest {
 
     @SubscribeEvent
     public void onReceive(ClientChatReceivedEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.AutoPowderChest && enabled) {
                 if (SkyblockUtils.isInCrystalHollows()) {
                     if (!Configs.AutoPowder) {
@@ -62,7 +61,7 @@ public class AutoPowderChest {
 
     @SubscribeEvent
     public void receivePacket(PacketReceivedEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.AutoPowderChest && enabled) {
                 if (SkyblockUtils.isInCrystalHollows()) {
                     if (!Configs.AutoPowder) {
@@ -109,44 +108,42 @@ public class AutoPowderChest {
 
     @SubscribeEvent
     public void onTick(TickEndEvent event) {
-        if (Checker.enabled) {
-            if (Configs.AutoPowderChest) {
-                if (SkyblockUtils.isInCrystalHollows()) {
-                    if (Configs.AutoPowder) {
-                        if (TimeUtils.curTime() - this.lastWarnTime > 10000L) {
-                            ChatLib.chat("Don't turn on Auto Powder / Auto Crystal Hollows Chest on at the same time!");
-                            ChatLib.chat("Disabled Auto Crystal Hollows Chest.");
-                            this.lastWarnTime = TimeUtils.curTime();
-                        }
+        if (Configs.AutoPowderChest) {
+            if (SkyblockUtils.isInCrystalHollows()) {
+                if (Configs.AutoPowder) {
+                    if (TimeUtils.curTime() - this.lastWarnTime > 10000L) {
+                        ChatLib.chat("Don't turn on Auto Powder / Auto Crystal Hollows Chest on at the same time!");
+                        ChatLib.chat("Disabled Auto Crystal Hollows Chest.");
+                        this.lastWarnTime = TimeUtils.curTime();
+                    }
 
-                    } else {
-                        if (keyBind.isPressed()) {
-                            enabled = !enabled;
-                            ChatLib.chat(enabled ? "Auto Crystal Hollows Chest &aactivated" : "Auto Crystal Hollows Chest &cdeactivated");
-                        }
+                } else {
+                    if (keyBind.isPressed()) {
+                        enabled = !enabled;
+                        ChatLib.chat(enabled ? "Auto Crystal Hollows Chest &aactivated" : "Auto Crystal Hollows Chest &cdeactivated");
+                    }
 
-                        if (enabled) {
-                            this.closestChest = this.getClosestChest();
-                            if (this.particalPos != null && (this.thread == null || !this.thread.isAlive())) {
-                                this.thread = new Thread(() -> {
-                                    Vector3f var1 = (Vector3f) this.particalPos.clone();
+                    if (enabled) {
+                        this.closestChest = this.getClosestChest();
+                        if (this.particalPos != null && (this.thread == null || !this.thread.isAlive())) {
+                            this.thread = new Thread(() -> {
+                                Vector3f var1 = (Vector3f) this.particalPos.clone();
 
-                                    try {
-                                        ControlUtils.faceSlowly(var1.x, var1.y, var1.z, false);
-                                    } catch (Exception var6) {
-                                        var6.printStackTrace();
-                                    } finally {
-                                        if (this.particalPos.equals(var1)) {
-                                            this.particalPos = null;
-                                        }
-
+                                try {
+                                    ControlUtils.faceSlowly(var1.x, var1.y, var1.z, false);
+                                } catch (Exception var6) {
+                                    var6.printStackTrace();
+                                } finally {
+                                    if (this.particalPos.equals(var1)) {
+                                        this.particalPos = null;
                                     }
 
-                                });
-                                this.thread.start();
-                            }
+                                }
 
+                            });
+                            this.thread.start();
                         }
+
                     }
                 }
             }
@@ -155,17 +152,15 @@ public class AutoPowderChest {
 
     @SubscribeEvent
     public void renderWorld(RenderWorldLastEvent var1) {
-        if (Checker.enabled) {
-            if (Configs.AutoPowderChest) {
-                if (SkyblockUtils.isInCrystalHollows()) {
-                    if (!Configs.AutoPowder) {
-                        if (this.closestChest != null) {
-                            GuiUtils.enableESP();
-                            GuiUtils.drawBoxAtBlock(this.closestChest.getX(), this.closestChest.getY(), this.closestChest.getZ(), 65, 185, 65, 100, 1, 1, 0.01F);
-                            GuiUtils.disableESP();
-                        }
-
+        if (Configs.AutoPowderChest) {
+            if (SkyblockUtils.isInCrystalHollows()) {
+                if (!Configs.AutoPowder) {
+                    if (this.closestChest != null) {
+                        GuiUtils.enableESP();
+                        GuiUtils.drawBoxAtBlock(this.closestChest.getX(), this.closestChest.getY(), this.closestChest.getZ(), 65, 185, 65, 100, 1, 1, 0.01F);
+                        GuiUtils.disableESP();
                     }
+
                 }
             }
         }

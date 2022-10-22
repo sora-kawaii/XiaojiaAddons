@@ -3,7 +3,6 @@ package com.xiaojia.xiaojiaaddons.Features.Dungeons;
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
 import com.xiaojia.xiaojiaaddons.Features.Dungeons.Map.Vector2i;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.XiaojiaAddons;
 import com.xiaojia.xiaojiaaddons.utils.ControlUtils;
 import com.xiaojia.xiaojiaaddons.utils.EntityUtils;
@@ -132,7 +131,7 @@ public class AutoItemFrame {
 
     @SubscribeEvent
     public void onTickCheck(TickEndEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.AutoItemFrameArrows) {
                 if (SkyblockUtils.isInDungeon()) {
                     if (MathUtils.distanceSquareFromPlayer(topLeft) <= 625.0) {

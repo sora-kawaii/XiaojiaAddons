@@ -3,7 +3,6 @@ package com.xiaojia.xiaojiaaddons.Features.Dungeons;
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.BlockChangeEvent;
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.utils.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockButtonStone;
@@ -52,7 +51,7 @@ public class SimonSays {
 
     @SubscribeEvent
     public void onRenderWorld(RenderWorldLastEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.SimonSaysSolver) {
                 if (clickIndex < clicks.size()) {
                     BlockPos var2 = (BlockPos) clicks.get(clickIndex);
@@ -66,7 +65,7 @@ public class SimonSays {
             priority = EventPriority.HIGH
     )
     public void onRightClick(PlayerInteractEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (Configs.SimonSaysSolver) {
                 if (Configs.SimonSaysBlockWrongClicks) {
                     if (SkyblockUtils.isInDungeon()) {
@@ -99,7 +98,7 @@ public class SimonSays {
 
     @SubscribeEvent
     public void onBlockChange(BlockChangeEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (SkyblockUtils.isInDungeon()) {
                 if (Configs.SimonSaysSolver) {
                     if (SkyblockUtils.getDungeon().contains("7")) {

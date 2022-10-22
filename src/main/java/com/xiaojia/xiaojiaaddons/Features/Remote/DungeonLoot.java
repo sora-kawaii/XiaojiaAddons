@@ -1,6 +1,6 @@
 package com.xiaojia.xiaojiaaddons.Features.Remote;
 
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
+
 import com.xiaojia.xiaojiaaddons.utils.ChatLib;
 import com.xiaojia.xiaojiaaddons.utils.SkyblockUtils;
 import com.xiaojia.xiaojiaaddons.utils.StringUtils;
@@ -22,7 +22,7 @@ public class DungeonLoot {
 
     @SubscribeEvent
     public void onChatReceived(ClientChatReceivedEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (var1.type == 0) {
                 if (SkyblockUtils.isInDungeon()) {
                     String var2 = ChatLib.removeFormatting(var1.message.getUnformattedText());
@@ -58,7 +58,7 @@ public class DungeonLoot {
 
                                     } else {
                                         if (var2.equals("") && this.loots.size() > 0) {
-                                            XiaojiaChat.uploadLoot(this.floor, this.score, this.type.toString(), this.loots);
+//                                            XiaojiaChat.uploadLoot(this.floor, this.score, this.type.toString(), this.loots);
                                             this.score = -1;
                                             this.loots.clear();
                                         }

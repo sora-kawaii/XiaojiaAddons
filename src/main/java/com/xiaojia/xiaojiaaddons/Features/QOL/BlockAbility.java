@@ -1,7 +1,6 @@
 package com.xiaojia.xiaojiaaddons.Features.QOL;
 
 import com.xiaojia.xiaojiaaddons.Config.Configs;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.utils.ChatLib;
 import com.xiaojia.xiaojiaaddons.utils.ControlUtils;
 import com.xiaojia.xiaojiaaddons.utils.NBTUtils;
@@ -16,7 +15,7 @@ import java.util.List;
 public class BlockAbility {
     @SubscribeEvent
     public void onPlayerInteract(PlayerInteractEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             try {
                 ItemStack var2 = ControlUtils.getHeldItemStack();
                 if (var2 == null) {

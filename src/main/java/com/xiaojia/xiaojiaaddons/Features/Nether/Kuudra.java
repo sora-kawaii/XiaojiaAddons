@@ -2,7 +2,6 @@ package com.xiaojia.xiaojiaaddons.Features.Nether;
 
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.Display.Display;
 import com.xiaojia.xiaojiaaddons.Objects.Display.DisplayLine;
 import com.xiaojia.xiaojiaaddons.utils.ChatLib;
@@ -166,7 +165,7 @@ public class Kuudra {
 
     @SubscribeEvent
     public void onChatReceived(ClientChatReceivedEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (var1.type == 0) {
                 if (Configs.KuudraDisplay) {
                     String var2 = ChatLib.removeFormatting(var1.message.getUnformattedText());
@@ -185,7 +184,7 @@ public class Kuudra {
 
     @SubscribeEvent
     public void onTick(TickEndEvent event) {
-        if (Checker.enabled) {
+        if (true) {
             display1.clearLines();
             display2.clearLines();
             display3.clearLines();

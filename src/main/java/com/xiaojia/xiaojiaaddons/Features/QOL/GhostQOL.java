@@ -3,7 +3,6 @@ package com.xiaojia.xiaojiaaddons.Features.QOL;
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
 import com.xiaojia.xiaojiaaddons.Features.RenderEntityESP;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.EntityInfo;
 import com.xiaojia.xiaojiaaddons.utils.EntityUtils;
 import com.xiaojia.xiaojiaaddons.utils.MathUtils;
@@ -48,7 +47,7 @@ public class GhostQOL extends RenderEntityESP {
 
     @SubscribeEvent
     public void onRender(RenderLivingEvent.Pre var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (SkyblockUtils.isInMist()) {
                 EntityLivingBase var2 = var1.entity;
                 if (var2 instanceof EntityCreeper) {
@@ -100,7 +99,7 @@ public class GhostQOL extends RenderEntityESP {
 
     @SubscribeEvent
     public void onTickRunicGhost(TickEndEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (SkyblockUtils.isInMist() && Configs.ShowRunicGhost) {
                 List var2 = EntityUtils.getEntities();
                 Iterator var3 = var2.iterator();

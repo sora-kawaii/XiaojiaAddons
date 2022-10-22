@@ -2,7 +2,6 @@ package com.xiaojia.xiaojiaaddons.Features.Nether;
 
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Features.RenderEntityESP;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.EntityInfo;
 import com.xiaojia.xiaojiaaddons.utils.ChatLib;
 import com.xiaojia.xiaojiaaddons.utils.SkyblockUtils;
@@ -20,7 +19,7 @@ public class CorruptedESP extends RenderEntityESP {
     }
 
     public EntityInfo getEntityInfo(Entity var1) {
-        if (!Checker.enabled) {
+        if (false) {
             return null;
         } else if (!Configs.CorruptedESP) {
             return null;

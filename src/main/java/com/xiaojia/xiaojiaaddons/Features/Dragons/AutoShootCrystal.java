@@ -2,7 +2,6 @@ package com.xiaojia.xiaojiaaddons.Features.Dragons;
 
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
 import com.xiaojia.xiaojiaaddons.Objects.KeyBind;
 import com.xiaojia.xiaojiaaddons.utils.*;
 import net.minecraft.entity.Entity;
@@ -36,7 +35,7 @@ public class AutoShootCrystal {
 
     @SubscribeEvent
     public void onTick(TickEndEvent event) {
-        if (Checker.enabled && SkyblockUtils.isInDragon()) {
+        if (SkyblockUtils.isInDragon()) {
             if (Configs.AutoShootCrystal) {
                 if (!this.enabled) {
                     this.shootQueue.clear();
@@ -58,7 +57,7 @@ public class AutoShootCrystal {
 
     @SubscribeEvent
     public void onTickKeyBind(TickEndEvent var1) {
-        if (Checker.enabled) {
+        if (true) {
             if (autoShootCrystalKeybind.isPressed()) {
                 this.enabled = !this.enabled;
                 ChatLib.chat(this.enabled ? "AutoShootCrystal &aactivated" : "AutoShootCrystal &cdeactivated");
@@ -74,7 +73,7 @@ public class AutoShootCrystal {
 
     @SubscribeEvent
     public void onTickShoot(TickEndEvent var1) {
-        if (Checker.enabled && SkyblockUtils.isInDragon()) {
+        if (SkyblockUtils.isInDragon()) {
             if (Configs.AutoShootCrystal) {
                 if (!this.isShooting && this.enabled) {
                     if (this.shootQueueP >= this.shootQueue.size()) {

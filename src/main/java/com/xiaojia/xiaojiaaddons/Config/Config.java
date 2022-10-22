@@ -11,7 +11,6 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.nio.file.OpenOption;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -104,28 +103,18 @@ public class Config {
                 BufferedReader var1 = Files.newBufferedReader(Paths.get("config/XiaojiaAddons.cfg"));
                 Type var2 = (new TypeToken() {
                 }).getType();
-                HashMap var3 = (new Gson()).fromJson(var1, var2);
-                Iterator var4 = var3.entrySet().iterator();
-
-                while (true) {
-                    while (true) {
-                        Map.Entry var5;
-                        Setting var6;
-                        do {
-                            if (!var4.hasNext()) {
-                                return;
-                            }
-
-                            var5 = (Map.Entry) var4.next();
-                            var6 = getSetting((String) var5.getKey(), XiaojiaAddons.settings);
-                        } while (var6 == null);
-
-                        if (!(var6 instanceof NumberSetting) && !(var6 instanceof SelectSetting)) {
-                            var6.set(var5.getValue());
+                HashMap<String, Object> var3 = (new Gson()).fromJson(var1, var2);
+                for (Map.Entry<String, Object> entry : var3.entrySet()) {
+                    Setting setting = Config.getSetting(entry.getKey(), XiaojiaAddons.settings);
+                    System.out.println("ENT " + entry.getValue() + "\t" + entry.getValue().getClass());
+                    if (setting != null) {
+                        if (setting instanceof NumberSetting || setting instanceof SelectSetting) {
+                            setting.set(((Double) entry.getValue()).intValue());
                         } else {
-                            var6.set(((Double) var5.getValue()).intValue());
+                            setting.set(entry.getValue());
                         }
                     }
+                    return;
                 }
             }
         } catch (Exception var7) {

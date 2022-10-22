@@ -1,6 +1,6 @@
 package com.xiaojia.xiaojiaaddons.Features.QOL;
 
-import com.xiaojia.xiaojiaaddons.Objects.Checker;
+
 import com.xiaojia.xiaojiaaddons.Objects.Inventory;
 import com.xiaojia.xiaojiaaddons.Objects.Pair;
 import com.xiaojia.xiaojiaaddons.Objects.StepEvent;
@@ -50,7 +50,7 @@ public abstract class AutoFuse extends StepEvent {
     public abstract void clear();
 
     public void execute() {
-        if (Checker.enabled) {
+        if (true) {
             if (this.enabled()) {
                 if (ControlUtils.getInventoryName().equals(this.inventoryName())) {
                     Inventory var1 = ControlUtils.getOpenedInventory();
