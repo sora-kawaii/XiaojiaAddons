@@ -1,8 +1,9 @@
 package com.xiaojia.xiaojiaaddons.Features.Remote;
 
-import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.xiaojia.xiaojiaaddons.Config.Configs;
 import com.xiaojia.xiaojiaaddons.Events.TickEndEvent;
 import com.xiaojia.xiaojiaaddons.Objects.Pair;
@@ -11,7 +12,6 @@ import com.xiaojia.xiaojiaaddons.utils.TimeUtils;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -92,14 +92,9 @@ public class LowestBin {
                     try {
                         if (Configs.FetchLowestBin) {
                             String var1 = RemoteUtils.get("https://skytils.gg/api/auctions/lowestbins", new ArrayList(), false);
-                            Type type = (new TypeToken() {
-                            }).getType();
-                            HashMap var3 = (new Gson()).fromJson(var1, type);
-                            Iterator var4 = var3.entrySet().iterator();
 
-                            while (var4.hasNext()) {
-                                Map.Entry var5 = (Map.Entry) var4.next();
-                                prices.put(var5.getKey(), Double.valueOf((String) var5.getValue()));
+                            for (Map.Entry<String, JsonElement> entry : new JsonParser().parse(var1).getAsJsonObject().entrySet()) {
+                                prices.put(entry.getKey(), entry.getValue().getAsDouble());
                             }
 
                             lastSuccessTime = TimeUtils.curTime();

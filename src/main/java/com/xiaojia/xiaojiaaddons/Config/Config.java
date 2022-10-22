@@ -2,6 +2,8 @@ package com.xiaojia.xiaojiaaddons.Config;
 
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 import com.xiaojia.xiaojiaaddons.Config.Setting.*;
 import com.xiaojia.xiaojiaaddons.XiaojiaAddons;
 
@@ -12,10 +14,7 @@ import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 
 public class Config {
 
@@ -101,20 +100,18 @@ public class Config {
             File var0 = new File("config/XiaojiaAddons.cfg");
             if (var0.exists()) {
                 BufferedReader var1 = Files.newBufferedReader(Paths.get("config/XiaojiaAddons.cfg"));
-                Type var2 = (new TypeToken() {
-                }).getType();
-                HashMap<String, Object> var3 = (new Gson()).fromJson(var1, var2);
-                for (Map.Entry<String, Object> entry : var3.entrySet()) {
+                Set<Map.Entry<String, JsonElement>> set = new JsonParser().parse(var1).getAsJsonObject().entrySet();
+                for (Map.Entry<String, JsonElement> entry : set) {
                     Setting setting = Config.getSetting(entry.getKey(), XiaojiaAddons.settings);
-                    System.out.println("ENT " + entry.getValue() + "\t" + entry.getValue().getClass());
                     if (setting != null) {
                         if (setting instanceof NumberSetting || setting instanceof SelectSetting) {
-                            setting.set(((Double) entry.getValue()).intValue());
+                            setting.set(entry.getValue().getAsInt());
+                        } else if (setting instanceof BooleanSetting) {
+                            setting.set(entry.getValue().getAsBoolean()); // HOW DID U CODE LIKE THAT :<
                         } else {
-                            setting.set(entry.getValue());
+                            setting.set(entry.getValue().getAsString());
                         }
                     }
-                    return;
                 }
             }
         } catch (Exception var7) {

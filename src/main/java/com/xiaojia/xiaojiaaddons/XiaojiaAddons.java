@@ -48,6 +48,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import org.lwjgl.opengl.Display;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -87,8 +88,8 @@ public class XiaojiaAddons {
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent var1) {
+        Display.setTitle("XiaojiaAddons 2.4.8.3 [CRACKED/DEOBFUSCATED BY ソラ]");
         MinecraftForge.EVENT_BUS.register(new TickEndEvent());
-        MinecraftForge.EVENT_BUS.register(new Checker());
         Config.load();
         RoomLoader.load();
         ItemRename.load();

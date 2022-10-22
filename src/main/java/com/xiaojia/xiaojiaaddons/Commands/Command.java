@@ -110,9 +110,6 @@ public class Command extends CommandBase {
                     case "rename":
                         ItemRename.process(var2);
                         break;
-                    case "showitem":
-                        ShowItem.show();
-                        break;
                     case "tick":
                         TickEndEvent.owo();
                         break;
