@@ -6,21 +6,21 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class Checker {
 
-   public static long connect = 0L;
+    public static long connect = 0L;
 
-   public static boolean enabled = true;
+    public static boolean enabled = true;
 
-   public static long auth = 0L;
+    public static long auth = 0L;
 
-   public static void onConnect() {
-      connect = TimeUtils.curTime();
-   }
+    public static void onConnect() {
+        connect = TimeUtils.curTime();
+    }
 
-   @SubscribeEvent
-   public void onTick(TickEndEvent event) {
-   }
+    public static void onAuth() {
+        auth = TimeUtils.curTime();
+    }
 
-   public static void onAuth() {
-      auth = TimeUtils.curTime();
-   }
+    @SubscribeEvent
+    public void onTick(TickEndEvent event) {
+    }
 }

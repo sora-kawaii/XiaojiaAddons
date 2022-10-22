@@ -2,17 +2,17 @@ package com.xiaojia.xiaojiaaddons.Features.Nether.Dojo;
 
 public enum EnumDojoTask {
 
-   FORCE,
+    FORCE,
 
-   STAMINA,
+    STAMINA,
 
-   MASTERY,
+    MASTERY,
 
-   DISCIPLINE,
+    DISCIPLINE,
 
-   SWIFTNESS,
+    SWIFTNESS,
 
-   CONTROL,
+    CONTROL,
 
-   TENACITY;
+    TENACITY
 }

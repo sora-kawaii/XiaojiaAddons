@@ -10,52 +10,51 @@ import java.nio.charset.StandardCharsets;
 
 public class HttpClient {
 
-   private URL url;
+    private final String urlstr;
+    private URL url;
 
-   private final String urlstr;
+    public HttpClient(String var1) {
+        this.urlstr = var1;
 
-   public HttpClient(String var1) {
-      this.urlstr = var1;
+        try {
+            this.url = new URL(var1);
+        } catch (MalformedURLException var3) {
+            var3.printStackTrace();
+        }
 
-      try {
-         this.url = new URL(var1);
-      } catch (MalformedURLException var3) {
-         var3.printStackTrace();
-      }
+    }
 
-   }
+    public String getrawresponse() throws ApiException {
+        StringBuilder var3 = new StringBuilder();
 
-   public String getrawresponse() throws ApiException {
-      StringBuilder var3 = new StringBuilder();
-
-      try {
-         HttpURLConnection var4 = (HttpURLConnection)this.url.openConnection();
-         var4.setRequestMethod("GET");
-         var4.setConnectTimeout(10000);
-         var4.setReadTimeout(10000);
-         int var5 = var4.getResponseCode();
-         if (var5 != 200) {
-            if (var5 == 429 && this.urlstr.contains("api.hypixel.net")) {
-               throw new ApiException("Exceeding amount of requests per minute allowed by Hypixel");
-            } else if (var5 == 403 && this.urlstr.contains("api.hypixel.net")) {
-               throw new ApiException("Invalid API key");
+        try {
+            HttpURLConnection var4 = (HttpURLConnection) this.url.openConnection();
+            var4.setRequestMethod("GET");
+            var4.setConnectTimeout(10000);
+            var4.setReadTimeout(10000);
+            int var5 = var4.getResponseCode();
+            if (var5 != 200) {
+                if (var5 == 429 && this.urlstr.contains("api.hypixel.net")) {
+                    throw new ApiException("Exceeding amount of requests per minute allowed by Hypixel");
+                } else if (var5 == 403 && this.urlstr.contains("api.hypixel.net")) {
+                    throw new ApiException("Invalid API key");
+                } else {
+                    return null;
+                }
             } else {
-               return null;
-            }
-         } else {
-            BufferedReader var1 = new BufferedReader(new InputStreamReader(var4.getInputStream(), StandardCharsets.UTF_8));
+                BufferedReader var1 = new BufferedReader(new InputStreamReader(var4.getInputStream(), StandardCharsets.UTF_8));
 
-            String var2;
-            while((var2 = var1.readLine()) != null) {
-               var3.append(var2);
-            }
+                String var2;
+                while ((var2 = var1.readLine()) != null) {
+                    var3.append(var2);
+                }
 
-            var1.close();
-            return var3.toString();
-         }
-      } catch (IOException var6) {
-         var6.printStackTrace();
-         throw new ApiException("An error occured while contacting the Api");
-      }
-   }
+                var1.close();
+                return var3.toString();
+            }
+        } catch (IOException var6) {
+            var6.printStackTrace();
+            throw new ApiException("An error occured while contacting the Api");
+        }
+    }
 }

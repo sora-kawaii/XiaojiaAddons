@@ -10,19 +10,19 @@ import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class MimicWarn {
-   @SubscribeEvent
-   public void onEntityDeath(LivingDeathEvent var1) {
-      if (Checker.enabled) {
-         if (SkyblockUtils.isInDungeon()) {
-            if (var1.entity instanceof EntityZombie && ((EntityZombie)((EntityZombie)var1.entity)).isChild()) {
-               if (Configs.MimicWarn) {
-                  CommandsUtils.addCommand("/pc Mimic dead!");
-               }
+    @SubscribeEvent
+    public void onEntityDeath(LivingDeathEvent var1) {
+        if (Checker.enabled) {
+            if (SkyblockUtils.isInDungeon()) {
+                if (var1.entity instanceof EntityZombie && ((EntityZombie) var1.entity).isChild()) {
+                    if (Configs.MimicWarn) {
+                        CommandsUtils.addCommand("/pc Mimic dead!");
+                    }
 
-               Dungeon.isMimicDead = true;
+                    Dungeon.isMimicDead = true;
+                }
+
             }
-
-         }
-      }
-   }
+        }
+    }
 }

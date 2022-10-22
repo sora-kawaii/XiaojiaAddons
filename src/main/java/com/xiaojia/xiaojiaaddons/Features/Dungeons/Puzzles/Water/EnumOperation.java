@@ -2,19 +2,19 @@ package com.xiaojia.xiaojiaaddons.Features.Dungeons.Puzzles.Water;
 
 public enum EnumOperation {
 
-   trig,
+    trig,
 
-   e,
+    e,
 
-   c,
+    c,
 
-   g,
+    g,
 
-   q,
+    q,
 
-   d,
+    d,
 
-   cl,
+    cl,
 
-   empty;
+    empty
 }

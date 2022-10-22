@@ -9,16 +9,16 @@ import net.minecraft.potion.Potion;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class RemoveBlindness {
-   @SubscribeEvent
-   public void onTick(TickEndEvent event) {
-      if (Checker.enabled) {
-         if (Configs.RemoveBlindness) {
-            EntityPlayerSP var2 = MinecraftUtils.getPlayer();
-            if (var2 != null) {
-               var2.removePotionEffect(Potion.blindness.id);
-            }
+    @SubscribeEvent
+    public void onTick(TickEndEvent event) {
+        if (Checker.enabled) {
+            if (Configs.RemoveBlindness) {
+                EntityPlayerSP var2 = MinecraftUtils.getPlayer();
+                if (var2 != null) {
+                    var2.removePotionEffect(Potion.blindness.id);
+                }
 
-         }
-      }
-   }
+            }
+        }
+    }
 }

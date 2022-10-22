@@ -2,7 +2,7 @@ package com.xiaojia.xiaojiaaddons.Objects.Display;
 
 enum Order {
 
-   UP,
+    UP,
 
-   DOWN;
+    DOWN
 }

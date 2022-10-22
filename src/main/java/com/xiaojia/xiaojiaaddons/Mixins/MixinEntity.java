@@ -14,30 +14,28 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin({Entity.class})
 public abstract class MixinEntity {
 
-   private String lastString = "";
+    @Shadow
+    protected DataWatcher dataWatcher;
+    private String lastString = "";
+    private String lastResult = "";
 
-   @Shadow
-   protected DataWatcher dataWatcher;
+    @Inject(
+            method = {"getCustomNameTag"},
+            at = {@At("HEAD")},
+            cancellable = true
+    )
+    public void getCustomString(CallbackInfoReturnable var1) {
+        String var2 = this.dataWatcher.getWatchableObjectString(2);
+        if (Checker.enabled && Configs.ColorNameNameTag) {
+            if (var2.equals(this.lastString)) {
+                var1.setReturnValue(this.lastResult);
+            } else {
+                String var3 = ColorName.addColorNameWithPrefix(var2);
+                this.lastResult = var3;
+                this.lastString = var2;
+                var1.setReturnValue(var3);
+            }
 
-   private String lastResult = "";
-
-   @Inject(
-      method = {"getCustomNameTag"},
-      at = {@At("HEAD")},
-      cancellable = true
-   )
-   public void getCustomString(CallbackInfoReturnable var1) {
-      String var2 = this.dataWatcher.getWatchableObjectString(2);
-      if (Checker.enabled && Configs.ColorNameNameTag) {
-         if (var2.equals(this.lastString)) {
-            var1.setReturnValue(this.lastResult);
-         } else {
-            String var3 = ColorName.addColorNameWithPrefix(var2);
-            this.lastResult = var3;
-            this.lastString = var2;
-            var1.setReturnValue(var3);
-         }
-
-      }
-   }
+        }
+    }
 }

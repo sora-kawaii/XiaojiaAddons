@@ -7,12 +7,12 @@ import com.xiaojia.xiaojiaaddons.utils.ControlUtils;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class KeepSprint {
-   @SubscribeEvent
-   public void onTick(TickEndEvent event) {
-      if (Checker.enabled) {
-         if (Configs.KeepSprint) {
-            ControlUtils.holdSprint();
-         }
-      }
-   }
+    @SubscribeEvent
+    public void onTick(TickEndEvent event) {
+        if (Checker.enabled) {
+            if (Configs.KeepSprint) {
+                ControlUtils.holdSprint();
+            }
+        }
+    }
 }

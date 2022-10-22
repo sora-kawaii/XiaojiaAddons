@@ -2,9 +2,9 @@ package com.xiaojia.xiaojiaaddons.Objects.Display;
 
 enum Background {
 
-   NONE,
+    NONE,
 
-   FULL,
+    FULL,
 
-   PER_LINE;
+    PER_LINE
 }

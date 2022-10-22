@@ -11,14 +11,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin({World.class})
 public class MixinWorld {
-   @Inject(
-      method = {"spawnEntityInWorld"},
-      at = {@At("HEAD")}
-   )
-   public void onSpawn(Entity var1, CallbackInfoReturnable var2) {
-      if (var1 instanceof EntityDragon) {
-         M7Dragon.onSpawnDragon((EntityDragon)var1);
-      }
+    @Inject(
+            method = {"spawnEntityInWorld"},
+            at = {@At("HEAD")}
+    )
+    public void onSpawn(Entity var1, CallbackInfoReturnable var2) {
+        if (var1 instanceof EntityDragon) {
+            M7Dragon.onSpawnDragon((EntityDragon) var1);
+        }
 
-   }
+    }
 }

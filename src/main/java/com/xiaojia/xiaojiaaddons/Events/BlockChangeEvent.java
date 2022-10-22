@@ -6,15 +6,15 @@ import net.minecraftforge.fml.common.eventhandler.Event;
 
 public class BlockChangeEvent extends Event {
 
-   public BlockPos position;
+    public BlockPos position;
 
-   public IBlockState newBlock;
+    public IBlockState newBlock;
 
-   public IBlockState oldBlock;
+    public IBlockState oldBlock;
 
-   public BlockChangeEvent(BlockPos var1, IBlockState var2, IBlockState var3) {
-      this.position = var1;
-      this.oldBlock = var2;
-      this.newBlock = var3;
-   }
+    public BlockChangeEvent(BlockPos var1, IBlockState var2, IBlockState var3) {
+        this.position = var1;
+        this.oldBlock = var2;
+        this.newBlock = var3;
+    }
 }

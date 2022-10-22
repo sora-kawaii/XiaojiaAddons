@@ -8,18 +8,17 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class TicTacToe {
 
-   private static Room room;
+    private static Room room;
 
-   public static void setRoom(Room var0) {
-      room = var0;
-   }
+    public static void setRoom(Room var0) {
+        room = var0;
+    }
 
-   @SubscribeEvent
-   public void onRightClickButton(PlayerInteractEvent var1) {
-      if (Checker.enabled) {
-         if (Configs.TicTacToeSolver) {
-            ;
-         }
-      }
-   }
+    @SubscribeEvent
+    public void onRightClickButton(PlayerInteractEvent var1) {
+        if (Checker.enabled) {
+            if (Configs.TicTacToeSolver) {
+            }
+        }
+    }
 }

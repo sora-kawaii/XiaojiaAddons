@@ -11,15 +11,15 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin({EntityPlayerSP.class})
 public class MixinEntityPlayerSP {
-   @Inject(
-      method = {"dropOneItem"},
-      at = {@At("HEAD")},
-      cancellable = true
-   )
-   public void onDropItem(boolean var1, CallbackInfoReturnable var2) {
-      if (MinecraftForge.EVENT_BUS.post(new ItemDropEvent(var1, ControlUtils.getHeldItemStack()))) {
-         var2.setReturnValue((Object)null);
-      }
+    @Inject(
+            method = {"dropOneItem"},
+            at = {@At("HEAD")},
+            cancellable = true
+    )
+    public void onDropItem(boolean var1, CallbackInfoReturnable var2) {
+        if (MinecraftForge.EVENT_BUS.post(new ItemDropEvent(var1, ControlUtils.getHeldItemStack()))) {
+            var2.setReturnValue(null);
+        }
 
-   }
+    }
 }

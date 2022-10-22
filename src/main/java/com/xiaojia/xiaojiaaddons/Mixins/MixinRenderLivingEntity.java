@@ -17,30 +17,30 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin({RendererLivingEntity.class})
 public abstract class MixinRenderLivingEntity {
 
-   @Shadow
-   protected ModelBase mainModel;
+    @Shadow
+    protected ModelBase mainModel;
 
-   @Inject(
-      method = {"canRenderName"},
-      at = {@At("HEAD")},
-      cancellable = true
-   )
-   public void canRenderName(EntityLivingBase var1, CallbackInfoReturnable var2) {
-      if (Configs.RenderSelfName && var1.getName().equals(MinecraftUtils.getPlayer().getName())) {
-         var2.setReturnValue(true);
-      }
+    @Inject(
+            method = {"canRenderName"},
+            at = {@At("HEAD")},
+            cancellable = true
+    )
+    public void canRenderName(EntityLivingBase var1, CallbackInfoReturnable var2) {
+        if (Configs.RenderSelfName && var1.getName().equals(MinecraftUtils.getPlayer().getName())) {
+            var2.setReturnValue(true);
+        }
 
-   }
+    }
 
-   @Inject(
-      method = {"renderModel"},
-      at = {@At("HEAD")},
-      cancellable = true
-   )
-   private void renderModel(EntityLivingBase var1, float var2, float var3, float var4, float var5, float var6, float var7, CallbackInfo var8) {
-      if (MinecraftForge.EVENT_BUS.post(new RenderEntityModelEvent(var1, var2, var3, var4, var5, var6, var7, this.mainModel))) {
-         var8.cancel();
-      }
+    @Inject(
+            method = {"renderModel"},
+            at = {@At("HEAD")},
+            cancellable = true
+    )
+    private void renderModel(EntityLivingBase var1, float var2, float var3, float var4, float var5, float var6, float var7, CallbackInfo var8) {
+        if (MinecraftForge.EVENT_BUS.post(new RenderEntityModelEvent(var1, var2, var3, var4, var5, var6, var7, this.mainModel))) {
+            var8.cancel();
+        }
 
-   }
+    }
 }

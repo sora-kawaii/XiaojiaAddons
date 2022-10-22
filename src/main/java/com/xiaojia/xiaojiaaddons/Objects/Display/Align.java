@@ -2,9 +2,9 @@ package com.xiaojia.xiaojiaaddons.Objects.Display;
 
 enum Align {
 
-   LEFT,
+    LEFT,
 
-   CENTER,
+    CENTER,
 
-   RIGHT;
+    RIGHT
 }

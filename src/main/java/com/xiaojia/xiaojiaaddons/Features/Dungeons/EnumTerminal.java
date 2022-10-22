@@ -2,17 +2,17 @@ package com.xiaojia.xiaojiaaddons.Features.Dungeons;
 
 enum EnumTerminal {
 
-   NONE,
+    NONE,
 
-   ORDER,
+    ORDER,
 
-   MAZE,
+    MAZE,
 
-   CORRECT,
+    CORRECT,
 
-   START,
+    START,
 
-   COLOR,
+    COLOR,
 
-   COLORPAD;
+    COLORPAD
 }

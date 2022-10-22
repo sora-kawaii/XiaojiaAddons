@@ -12,14 +12,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin({RenderItem.class})
 public class MixinRenderItem {
-   @Inject(
-      method = {"renderItemOverlayIntoGUI"},
-      at = {@At("RETURN")}
-   )
-   private void renderItemOverlayPost(FontRenderer var1, ItemStack var2, int var3, int var4, String var5, CallbackInfo var6) {
-      if (MinecraftForge.EVENT_BUS.post(new ItemDrawnEvent(var1, var2, var3, var4, var5))) {
-         var6.cancel();
-      }
+    @Inject(
+            method = {"renderItemOverlayIntoGUI"},
+            at = {@At("RETURN")}
+    )
+    private void renderItemOverlayPost(FontRenderer var1, ItemStack var2, int var3, int var4, String var5, CallbackInfo var6) {
+        if (MinecraftForge.EVENT_BUS.post(new ItemDrawnEvent(var1, var2, var3, var4, var5))) {
+            var6.cancel();
+        }
 
-   }
+    }
 }

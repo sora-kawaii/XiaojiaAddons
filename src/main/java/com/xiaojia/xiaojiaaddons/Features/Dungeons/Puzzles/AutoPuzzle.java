@@ -4,5 +4,5 @@ import com.xiaojia.xiaojiaaddons.Objects.KeyBind;
 
 public class AutoPuzzle {
 
-   public static final KeyBind keyBind = new KeyBind("Auto Puzzles", 0);
+    public static final KeyBind keyBind = new KeyBind("Auto Puzzles", 0);
 }

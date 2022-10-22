@@ -11,19 +11,19 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin({EntityRenderer.class})
 public class MixinEntityRenderer {
-   @Inject(
-      method = {"hurtCameraEffect"},
-      at = {@At("HEAD")},
-      cancellable = true
-   )
-   public void onHurtCam(CallbackInfo var1) {
-      if (Checker.enabled) {
-         if (SkyblockUtils.isInSkyblock()) {
-            if (Configs.RemoveHurtCam) {
-               var1.cancel();
-            }
+    @Inject(
+            method = {"hurtCameraEffect"},
+            at = {@At("HEAD")},
+            cancellable = true
+    )
+    public void onHurtCam(CallbackInfo var1) {
+        if (Checker.enabled) {
+            if (SkyblockUtils.isInSkyblock()) {
+                if (Configs.RemoveHurtCam) {
+                    var1.cancel();
+                }
 
-         }
-      }
-   }
+            }
+        }
+    }
 }

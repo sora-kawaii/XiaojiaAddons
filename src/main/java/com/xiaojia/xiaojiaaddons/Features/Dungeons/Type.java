@@ -2,11 +2,11 @@ package com.xiaojia.xiaojiaaddons.Features.Dungeons;
 
 enum Type {
 
-   EMPTY,
+    EMPTY,
 
-   PATH,
+    PATH,
 
-   START,
+    START,
 
-   END;
+    END
 }

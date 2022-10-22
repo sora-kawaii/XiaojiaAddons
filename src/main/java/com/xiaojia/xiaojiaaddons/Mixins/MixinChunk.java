@@ -14,21 +14,21 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin({Chunk.class})
 public abstract class MixinChunk {
-   @Shadow
-   public abstract IBlockState getBlockState(BlockPos var1);
+    @Shadow
+    public abstract IBlockState getBlockState(BlockPos var1);
 
-   @Inject(
-      method = {"setBlockState"},
-      at = {@At("HEAD")}
-   )
-   private void onBlockChange(BlockPos var1, IBlockState var2, CallbackInfoReturnable var3) {
-      IBlockState var4 = this.getBlockState(var1);
-      if (var4 != var2 && MinecraftUtils.getWorld() != null) {
-         try {
-            MinecraftForge.EVENT_BUS.post(new BlockChangeEvent(var1, var4, var2));
-         } catch (Exception var6) {
-         }
-      }
+    @Inject(
+            method = {"setBlockState"},
+            at = {@At("HEAD")}
+    )
+    private void onBlockChange(BlockPos var1, IBlockState var2, CallbackInfoReturnable var3) {
+        IBlockState var4 = this.getBlockState(var1);
+        if (var4 != var2 && MinecraftUtils.getWorld() != null) {
+            try {
+                MinecraftForge.EVENT_BUS.post(new BlockChangeEvent(var1, var4, var2));
+            } catch (Exception var6) {
+            }
+        }
 
-   }
+    }
 }

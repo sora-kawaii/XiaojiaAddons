@@ -8,21 +8,19 @@ import net.minecraftforge.fml.common.eventhandler.Event;
 @Cancelable
 public class CheckEntityRenderEvent extends Event {
 
-   double camY;
+    public Entity entity;
+    double camY;
+    ICamera camera;
 
-   public Entity entity;
+    double camZ;
 
-   ICamera camera;
+    double camX;
 
-   double camZ;
-
-   double camX;
-
-   public CheckEntityRenderEvent(Entity var1, ICamera var2, double var3, double var5, double var7) {
-      this.entity = var1;
-      this.camera = var2;
-      this.camX = var3;
-      this.camY = var5;
-      this.camZ = var7;
-   }
+    public CheckEntityRenderEvent(Entity var1, ICamera var2, double var3, double var5, double var7) {
+        this.entity = var1;
+        this.camera = var2;
+        this.camX = var3;
+        this.camY = var5;
+        this.camZ = var7;
+    }
 }

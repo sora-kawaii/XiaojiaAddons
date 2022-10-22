@@ -2,49 +2,49 @@ package com.xiaojia.xiaojiaaddons.Features.Dungeons.Puzzles.Water;
 
 public enum EnumState {
 
-   B,
+    B,
 
-   E,
+    E,
 
-   c,
+    c,
 
-   g,
+    g,
 
-   q,
+    q,
 
-   d,
+    d,
 
-   e,
+    e,
 
-   cl,
+    cl,
 
-   cc,
+    cc,
 
-   cg,
+    cg,
 
-   cq,
+    cq,
 
-   cd,
+    cd,
 
-   ce,
+    ce,
 
-   ccl,
+    ccl,
 
-   w,
+    w,
 
-   w1,
+    w1,
 
-   w2,
+    w2,
 
-   w3,
+    w3,
 
-   w4,
+    w4,
 
-   w5,
+    w5,
 
-   w6,
+    w6,
 
-   w7,
+    w7,
 
-   w8;
+    w8
 }

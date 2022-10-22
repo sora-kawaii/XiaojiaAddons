@@ -1,37 +1,38 @@
 package com.xiaojia.xiaojiaaddons.Features.Dungeons;
 
-import java.awt.Color;
 import net.minecraft.util.BlockPos;
+
+import java.awt.*;
 
 class DragonInfo {
 
-   String textureName;
+    String textureName;
 
-   BlockPos blockPos;
+    BlockPos blockPos;
 
-   String headName;
+    String headName;
 
-   Color color;
+    Color color;
 
-   String prefix;
+    String prefix;
 
-   public DragonInfo(BlockPos var1, String var2, Color var3, String var4, String var5) {
-      this.blockPos = var1;
-      this.prefix = var2;
-      this.color = var3;
-      this.textureName = var4;
-      this.headName = var5;
-   }
+    public DragonInfo(BlockPos var1, String var2, Color var3, String var4, String var5) {
+        this.blockPos = var1;
+        this.prefix = var2;
+        this.color = var3;
+        this.textureName = var4;
+        this.headName = var5;
+    }
 
-   public int hashCode() {
-      return this.prefix.hashCode();
-   }
+    public int hashCode() {
+        return this.prefix.hashCode();
+    }
 
-   public boolean equals(Object var1) {
-      if (var1 instanceof DragonInfo) {
-         return var1.hashCode() == this.hashCode();
-      } else {
-         return false;
-      }
-   }
+    public boolean equals(Object var1) {
+        if (var1 instanceof DragonInfo) {
+            return var1.hashCode() == this.hashCode();
+        } else {
+            return false;
+        }
+    }
 }

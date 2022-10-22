@@ -10,36 +10,36 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class AutoIsland {
 
-   private boolean evacuate = false;
+    private boolean evacuate = false;
 
-   @SubscribeEvent
-   public void onChatReceived(ClientChatReceivedEvent var1) {
-      if (Checker.enabled) {
-         if (Configs.AutoIsland) {
-            String var2 = var1.message.getUnformattedText();
-            if (var2.equals("Evacuating to Hub...")) {
-               this.evacuate = true;
+    @SubscribeEvent
+    public void onChatReceived(ClientChatReceivedEvent var1) {
+        if (Checker.enabled) {
+            if (Configs.AutoIsland) {
+                String var2 = var1.message.getUnformattedText();
+                if (var2.equals("Evacuating to Hub...")) {
+                    this.evacuate = true;
+                }
+
             }
+        }
+    }
 
-         }
-      }
-   }
+    @SubscribeEvent
+    public void onWorldLoad(WorldEvent.Load event) {
+        if (this.evacuate) {
+            this.evacuate = false;
+            (new Thread(() -> {
+                try {
+                    Thread.sleep(2000L);
+                    ChatLib.chat("Auto Island");
+                    CommandsUtils.addCommand("/is");
+                } catch (Exception var1) {
+                    var1.printStackTrace();
+                }
 
-   @SubscribeEvent
-   public void onWorldLoad(WorldEvent.Load event) {
-      if (this.evacuate) {
-         this.evacuate = false;
-         (new Thread(() -> {
-            try {
-               Thread.sleep(2000L);
-               ChatLib.chat("Auto Island");
-               CommandsUtils.addCommand("/is");
-            } catch (Exception var1) {
-               var1.printStackTrace();
-            }
+            })).start();
+        }
 
-         })).start();
-      }
-
-   }
+    }
 }

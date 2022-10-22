@@ -10,11 +10,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin({EntityPlayer.class})
 public abstract class MixinEntityPlayer {
-   @Inject(
-      method = {"onLivingUpdate"},
-      at = {@At("HEAD")}
-   )
-   private void livingUpdate(CallbackInfo var1) {
-      MinecraftForge.EVENT_BUS.post(new UpdateEvent());
-   }
+    @Inject(
+            method = {"onLivingUpdate"},
+            at = {@At("HEAD")}
+    )
+    private void livingUpdate(CallbackInfo var1) {
+        MinecraftForge.EVENT_BUS.post(new UpdateEvent());
+    }
 }

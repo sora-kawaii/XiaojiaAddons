@@ -4,23 +4,20 @@ import java.util.ArrayList;
 
 public class Data {
 
-   public String name;
+    public static Data blankRoom = new Data("Unknown", "normal", 0, new ArrayList());
+    public String name;
+    public String type;
+    public int secrets;
 
-   public String type;
+    public ArrayList cores;
 
-   public static Data blankRoom = new Data("Unknown", "normal", 0, new ArrayList());
+    public Data(String var1, String var2, int var3, ArrayList var4) {
+        this.name = var1;
+        this.type = var2;
+        this.secrets = var3;
+        this.cores = var4;
+    }
 
-   public int secrets;
-
-   public ArrayList cores;
-
-   public Data(String var1, String var2, int var3, ArrayList var4) {
-      this.name = var1;
-      this.type = var2;
-      this.secrets = var3;
-      this.cores = var4;
-   }
-
-   public Data() {
-   }
+    public Data() {
+    }
 }

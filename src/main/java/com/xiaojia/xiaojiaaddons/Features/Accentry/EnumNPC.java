@@ -2,11 +2,11 @@ package com.xiaojia.xiaojiaaddons.Features.Accentry;
 
 enum EnumNPC {
 
-   NONE,
+    NONE,
 
-   JY,
+    JY,
 
-   XNH,
+    XNH,
 
-   CXK;
+    CXK
 }

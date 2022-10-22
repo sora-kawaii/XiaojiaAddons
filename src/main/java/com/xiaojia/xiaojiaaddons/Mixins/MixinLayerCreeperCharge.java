@@ -14,20 +14,20 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 @Mixin({LayerCreeperCharge.class})
 public abstract class MixinLayerCreeperCharge implements LayerRenderer {
 
-   ResourceLocation VISIBLE_CREEPER_ARMOR = new ResourceLocation("xiaojiaaddons", "creeper_armor.png");
+    ResourceLocation VISIBLE_CREEPER_ARMOR = new ResourceLocation("xiaojiaaddons", "creeper_armor.png");
 
-   @ModifyArg(
-      method = {"doRenderLayer"},
-      at = @At(
-   value = "INVOKE",
-   target = "Lnet/minecraft/client/renderer/entity/RenderCreeper;bindTexture(Lnet/minecraft/util/ResourceLocation;)V"
-)
-   )
-   private ResourceLocation modifyChargedCreeperLayer(ResourceLocation var1) {
-      if (!Checker.enabled) {
-         return var1;
-      } else {
-         return SkyblockUtils.isInMist() && Configs.VisibleGhost == GhostQOL.FILLED_OUTLINE_BOX ? this.VISIBLE_CREEPER_ARMOR : var1;
-      }
-   }
+    @ModifyArg(
+            method = {"doRenderLayer"},
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/client/renderer/entity/RenderCreeper;bindTexture(Lnet/minecraft/util/ResourceLocation;)V"
+            )
+    )
+    private ResourceLocation modifyChargedCreeperLayer(ResourceLocation var1) {
+        if (!Checker.enabled) {
+            return var1;
+        } else {
+            return SkyblockUtils.isInMist() && Configs.VisibleGhost == GhostQOL.FILLED_OUTLINE_BOX ? this.VISIBLE_CREEPER_ARMOR : var1;
+        }
+    }
 }

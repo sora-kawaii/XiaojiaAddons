@@ -2,11 +2,11 @@ package com.xiaojia.xiaojiaaddons.Features.Dungeons.Puzzles.Water;
 
 public enum EnumFacing {
 
-   zp,
+    zp,
 
-   zn,
+    zn,
 
-   xp,
+    xp,
 
-   xn;
+    xn
 }
